@@ -2,26 +2,15 @@ package repositories;
 
 import org.hibernate.criterion.Restrictions;
 
+import com.google.inject.ImplementedBy;
+
 import models.Account;
 import services.exceptions.ServiceException;
 
-public class AccountRepository extends BaseRepositoryImplementation<Account>{
-
-	public Account getByEmail(Account account) {
-	       
-    	return (Account) getBaseCriteria()
-            .add(Restrictions.eq("email", account.getEmail())
-            .uniqueResult();
-           
-}
+@ImplementedBy(AccountRepositoryImplementation.class)
+public interface AccountRepository extends BaseRepository<Account> {
+	public Account getByEmail(Account account);
+	public Account getByEmailAndPassword(Account account);
 	
-	public Account getByEmailAndPassword(Account account) {
-       
-        	return (Account) getBaseCriteria()
-                .add(Restrictions.eq("email", account.getEmail())
-                .add(Restrictions.eq("password",account.getPassword())
-                .uniqueResult();
-               
-    }
 	
 }

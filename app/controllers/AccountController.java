@@ -21,11 +21,11 @@ public class AccountController extends BaseController<Account, AccountService> {
     @BodyParser.Of(BodyParser.Json.class)
 	public Result login(){
 		try{
-			if (form.hasErrors()) {
+			if (FORM.hasErrors()) {
 				Logger.error("form");
 				return badRequest(Json.toJson("form error"));
 			}
-			return ok(Json.toJson(service.getByEmailAndPassword(form.get())));
+			return ok(Json.toJson(service.getByEmailAndPassword(FORM.get())));
 		
 		}
 		catch(ServiceException e){

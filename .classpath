@@ -108,7 +108,7 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="C:/Users/HP/.ivy2/cache/org.hibernate.javax.persistence/hibernate-jpa-2.1-api/jars/hibernate-jpa-2.1-api-1.0.0.Final.jar"/>
 	<classpathentry kind="lib" path="C:/Users/HP/.ivy2/cache/com.typesafe.play/play-java-jpa_2.11/jars/play-java-jpa_2.11-2.5.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/HP/.ivy2/cache/org.hibernate/hibernate-entitymanager/jars/hibernate-entitymanager-5.1.0.Final.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/HP/.ivy2/cache/org.hibernate/hibernate-entitymanager/jars/hibernate-entitymanager-5.1.0.Final.jar"/>
 	<classpathentry kind="lib" path="C:/Users/HP/.ivy2/cache/org.hibernate/hibernate-core/jars/hibernate-core-5.1.0.Final.jar"/>
 	<classpathentry kind="lib" path="C:/Users/HP/.m2/repository/org/springframework/security/spring-security-core/4.2.1.RELEASE/spring-security-core-4.2.1.RELEASE.jar">
 		<attributes>

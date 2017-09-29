@@ -21,9 +21,19 @@ import services.exceptions.ServiceException;
 @Singleton
 public class BaseController<M extends BaseModel<M>, S extends BaseService> extends Controller {
 	protected S service;
+	private FormFactory formFactory;
 	
-	@Inject private FormFactory formFactory;
-	protected Form<M> form =formFactory.form(getParameterizedClass());
+	@Inject
+	public void setService(S service) {
+		this.service = service;
+	}
+
+	@Inject
+	public void setFormFactory(FormFactory formFactory) {
+		this.formFactory = formFactory;
+	}
+
+	protected final Form<M> FORM =formFactory.form(getParameterizedClass());
 	
 	@Transactional(readOnly = true)
 	public Result get(Long id) {
@@ -38,12 +48,12 @@ public class BaseController<M extends BaseModel<M>, S extends BaseService> exten
 	@Transactional
     public Result create() {
         try {
-            Form<M> form = formFactory.form(getParameterizedClass()).bindFromRequest();
+            Form<M> form = FORM.bindFromRequest();
             if(form.hasErrors()) {
                 return badRequest(form.errorsAsJson());
             }
-
-            return created(Json.toJson(service.create(form.get())));
+            
+            return ok(Json.toJson(service.create(form.get())));
         } catch(ServiceException e) {
             return badRequest("Service error in BaseController@create");
         } catch(Exception e) {
@@ -54,7 +64,7 @@ public class BaseController<M extends BaseModel<M>, S extends BaseService> exten
 	@Transactional
     public Result update(Long id) {
         try {
-            Form<M> form = formFactory.form(getParameterizedClass()).bindFromRequest();
+        	 Form<M> form = FORM.bindFromRequest();
             if(form.hasErrors()) {
                 return badRequest(form.errorsAsJson());
             }

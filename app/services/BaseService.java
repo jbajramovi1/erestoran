@@ -1,19 +1,24 @@
 package services;
 
+import javax.inject.Inject;
 import javax.inject.Singleton;
-
-import org.hibernate.service.spi.ServiceException;
 
 import models.BaseModel;
 import play.Logger;
 import repositories.BaseRepository;
 import repositories.exceptions.RepositoryException;
+import services.exceptions.ServiceException;
 
 @Singleton
 public abstract class BaseService<M extends BaseModel<M>, R extends BaseRepository<M>> {
 	protected R repository;
+	
+	@Inject
+	public void setRepository(R repository) {
+		this.repository = repository;
+	}
 
-	public M get(Long id)  {
+	public M get(Long id) throws ServiceException  {
 	    M model = repository.findById(id);
 	
 	    if (model != null) {

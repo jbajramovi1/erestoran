@@ -5,8 +5,14 @@
 # An example controller showing a sample home page
 GET     /                           controllers.HomeController.index
 
+#user api
+
+#GET  /api/v1/user/:id @controllers.AccountController.get(Long id)
+#PUT  /api/v1/user/:id @controllers.AccountController.update(Long id)
+POST /api/v1/user @controllers.AccountController.create()
+#DELETE /api/v1/user/:id @controllers.AccountController.delete(Long id)
+
+POST /api/v1/login @controllers.AccountController.login()
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
-
-POST /api/v1/login controllers.AccountController.login()
-
