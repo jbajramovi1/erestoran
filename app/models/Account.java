@@ -2,9 +2,8 @@ package models;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name="account")
 public class Account extends BaseModel<Account> {
-
 	private String email;
 	private String password;
 	private String phone;

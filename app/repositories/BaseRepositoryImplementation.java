@@ -26,33 +26,38 @@ public class BaseRepositoryImplementation<M> implements BaseRepository<M> {
 	    return session.createCriteria(getParameterizedClass());
 	  }
 	  
+	  public Session getSession()
+	    {
+	        return JPA.em().unwrap(Session.class);
+	    }
+	  
 	  // Impl create-a
-	  public void create(M model) {
+	  public void create(M model) throws RepositoryException {
 	    try {
 	      JPA.em().persist(model);
 	      JPA.em().flush();
 	    } catch (PersistenceException e) {
-	      //throw new RepositoryException(e);
+	      throw new RepositoryException(e.toString());
 	    }
 	  }
 	  
 	// Impl update-a
-	  public void update(M model) {
+	  public void update(M model) throws RepositoryException {
 	    try {
 	      JPA.em().merge(model);
 	      JPA.em().flush();
 	    } catch (PersistenceException e) {
-	      //throw new RepositoryExceptionn("error");
+	      throw new RepositoryException(e.toString());
 	    }
 	  }
 
 	  // Impl delete-a
-	  public void delete(M model) {
+	  public void delete(M model) throws RepositoryException {
 	    try {
 	      JPA.em().remove(model);
 	      JPA.em().flush();
 	    } catch (PersistenceException e) {
-	      //throw new RepositoryException(e);
+	      throw new RepositoryException(e.toString());
 	    }
 	  }
 }

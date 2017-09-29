@@ -9,7 +9,9 @@ scalaVersion := "2.12.2"
 
 libraryDependencies+=guice
 libraryDependencies+=jdbc
-
+libraryDependencies += evolutions
+libraryDependencies += javaForms
+libraryDependencies ++= Seq(evolutions, jdbc)
 libraryDependencies ++= Seq(
   javaJpa,
   "org.hibernate" % "hibernate-entitymanager" % "5.1.0.Final",

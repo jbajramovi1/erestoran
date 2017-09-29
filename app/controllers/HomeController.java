@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 
 import models.Account;
 import play.db.jpa.JPA;
+import play.db.jpa.JPAApi;
 import play.mvc.*;
 
 /**
@@ -21,9 +22,9 @@ public class HomeController extends Controller {
      * this method will be called when the application receives a
      * <code>GET</code> request with a path of <code>/</code>.
      */
-
 	
     public Result index() {
+    	
         return ok(views.html.index.render());
     }
 
