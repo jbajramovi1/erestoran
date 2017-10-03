@@ -11,6 +11,4 @@ import services.exceptions.ServiceException;
 public interface AccountRepository extends BaseRepository<Account> {
 	public Account getByEmail(Account account);
 	public Account getByEmailAndPassword(Account account);
-	
-	
 }

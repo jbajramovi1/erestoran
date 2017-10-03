@@ -17,11 +17,10 @@ import play.mvc.Result;
 import services.BaseService;
 import services.exceptions.ServiceException;
 
-
 @Singleton
-public class BaseController<M extends BaseModel<M>, S extends BaseService> extends Controller {
+public abstract class BaseController<M extends BaseModel<M>, S extends BaseService> extends Controller {
 	protected S service;
-	private FormFactory formFactory;
+	protected FormFactory formFactory;
 	
 	@Inject
 	public void setService(S service) {
@@ -32,8 +31,6 @@ public class BaseController<M extends BaseModel<M>, S extends BaseService> exten
 	public void setFormFactory(FormFactory formFactory) {
 		this.formFactory = formFactory;
 	}
-
-	protected final Form<M> FORM =formFactory.form(getParameterizedClass());
 	
 	@Transactional(readOnly = true)
 	public Result get(Long id) {
@@ -41,6 +38,7 @@ public class BaseController<M extends BaseModel<M>, S extends BaseService> exten
 			return ok(Json.toJson(service.get(id)));
 		}
 		catch(Exception e){
+			Logger.error("Internal server error in BaseController@get");
 			return internalServerError("Internal server error in BaseController@get");
 		}
 	} 
@@ -48,15 +46,17 @@ public class BaseController<M extends BaseModel<M>, S extends BaseService> exten
 	@Transactional
     public Result create() {
         try {
-            Form<M> form = FORM.bindFromRequest();
+        	Form<M> form = formFactory.form(getParameterizedClass()).bindFromRequest();
             if(form.hasErrors()) {
                 return badRequest(form.errorsAsJson());
             }
             
             return ok(Json.toJson(service.create(form.get())));
         } catch(ServiceException e) {
+        	Logger.error("Service error in BaseController@create");
             return badRequest("Service error in BaseController@create");
         } catch(Exception e) {
+        	Logger.error("Internal server error in BaseController@create");
             return internalServerError("Internal server error in BaseController@create");
         }
     }
@@ -64,15 +64,16 @@ public class BaseController<M extends BaseModel<M>, S extends BaseService> exten
 	@Transactional
     public Result update(Long id) {
         try {
-        	 Form<M> form = FORM.bindFromRequest();
+        	Form<M> form = formFactory.form(getParameterizedClass()).bindFromRequest();
             if(form.hasErrors()) {
                 return badRequest(form.errorsAsJson());
             }
-
             return ok(Json.toJson(service.update(id, form.get())));
         } catch(ServiceException e) {
+        	Logger.error("Service error in BaseController@update");
             return badRequest("Service error in BaseController@update");
         } catch(Exception e) {
+        	Logger.error("Internal server error in BaseController@update");
             return internalServerError("Internal server error in BaseController@update");
         }
     }
@@ -83,8 +84,10 @@ public class BaseController<M extends BaseModel<M>, S extends BaseService> exten
             service.delete(id);
             return ok(Json.toJson("success"));
         } catch(ServiceException e) {
+        	Logger.error("Service error in BaseController@delete");
             return badRequest("Service error in BaseController@delete");
         } catch(Exception e) {
+        	Logger.error("Internal server error in BaseController@delete");
             return internalServerError("Internal server error in BaseController@delete");
         }
     }

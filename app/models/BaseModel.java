@@ -4,7 +4,6 @@ import javax.persistence.*;
 
 @MappedSuperclass
 public abstract class BaseModel<M>  {
-
 	private Long id;
 	
 	@Id

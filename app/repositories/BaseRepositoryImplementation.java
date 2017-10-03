@@ -5,13 +5,13 @@ import javax.persistence.PersistenceException;
 import org.hibernate.*;
 import org.hibernate.jpa.HibernateEntityManager;
 
+import play.Logger;
 import play.db.jpa.JPA;
 import repositories.exceptions.*;
 
 import java.lang.reflect.ParameterizedType;
 
 public class BaseRepositoryImplementation<M> implements BaseRepository<M> {
-
 
 	private Class<M> getParameterizedClass() {
 	    return (Class<M>) ((ParameterizedType)getClass().getGenericSuperclass()).getActualTypeArguments()[0];
@@ -26,37 +26,39 @@ public class BaseRepositoryImplementation<M> implements BaseRepository<M> {
 	    return session.createCriteria(getParameterizedClass());
 	  }
 	  
-	  public Session getSession()
-	    {
+	  public Session getSession() {
 	        return JPA.em().unwrap(Session.class);
-	    }
+	  }
 	  
-	  // Impl create-a
 	  public void create(M model) throws RepositoryException {
 	    try {
 	      JPA.em().persist(model);
 	      JPA.em().flush();
-	    } catch (PersistenceException e) {
+	    } 
+	    catch (PersistenceException e) {
+	      Logger.error("ServiceException in BaseRepository@create");
 	      throw new RepositoryException(e.toString());
 	    }
 	  }
 	  
-	// Impl update-a
 	  public void update(M model) throws RepositoryException {
 	    try {
 	      JPA.em().merge(model);
 	      JPA.em().flush();
-	    } catch (PersistenceException e) {
+	    } 
+	    catch (PersistenceException e) {
+	      Logger.error("ServiceException in BaseRepository@update");
 	      throw new RepositoryException(e.toString());
 	    }
 	  }
 
-	  // Impl delete-a
 	  public void delete(M model) throws RepositoryException {
 	    try {
 	      JPA.em().remove(model);
 	      JPA.em().flush();
-	    } catch (PersistenceException e) {
+	    } 
+	    catch (PersistenceException e) {
+	      Logger.error("ServiceException in BaseRepository@delete");
 	      throw new RepositoryException(e.toString());
 	    }
 	  }
