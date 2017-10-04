@@ -2,7 +2,7 @@ package controllers;
 
 import javax.inject.Inject;
 
-import org.mindrot.jbcrypt.Bcrypt;
+import org.mindrot.jbcrypt.*;
 
 import models.Account;
 import play.mvc.BodyParser;

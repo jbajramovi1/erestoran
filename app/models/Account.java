@@ -11,9 +11,8 @@ public class Account extends BaseModel<Account> {
 	@Basic
 	@Column(name="password",nullable=false)
 	private String password;
-	@Basic
-	@Column(name = "role",nullable=false)
-	private Role role;
+	@Column(name = "role")
+	private int roleValue;
 	@Basic
     @Column(name = "phone")
 	private String phone;
@@ -29,7 +28,8 @@ public class Account extends BaseModel<Account> {
 	@Basic
     @Column(name = "last_name")
 	private String lastName;
-	
+
+	private Role role;
 	
 	public String getEmail() {
 		return email;
@@ -80,15 +80,13 @@ public class Account extends BaseModel<Account> {
 		this.lastName = lastName;
 	}
 	
-	public Role getRole() {
-		return role;
+	 public Role getRole() {
+		return Role.values()[roleValue];
 	}
 	public void setRole(Role role) {
-		this.role = role;
+		this.role = Role.values()[roleValue];
 	}
-	
-	
-	 @Override
+	@Override
 	 public void update(Account data) {
 	     if(data.getFirstName() != null) setFirstName(data.getFirstName());
 	     if(data.getLastName() != null) setLastName(data.getLastName());

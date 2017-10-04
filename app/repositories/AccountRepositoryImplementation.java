@@ -1,7 +1,7 @@
 package repositories;
 
 import org.hibernate.criterion.Restrictions;
-import org.mindrot.jbcrypt.Bcrypt;
+import org.mindrot.jbcrypt.*;
 
 import models.Account;
 import services.exceptions.ServiceException;
