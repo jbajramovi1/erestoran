@@ -11,8 +11,9 @@ public class Account extends BaseModel<Account> {
 	@Basic
 	@Column(name="password",nullable=false)
 	private String password;
+	@Enumerated(value = EnumType.STRING)
 	@Column(name = "role")
-	private int roleValue;
+	private Role role;
 	@Basic
     @Column(name = "phone")
 	private String phone;
@@ -29,7 +30,6 @@ public class Account extends BaseModel<Account> {
     @Column(name = "last_name")
 	private String lastName;
 
-	private Role role;
 	
 	public String getEmail() {
 		return email;
@@ -81,10 +81,10 @@ public class Account extends BaseModel<Account> {
 	}
 	
 	 public Role getRole() {
-		return Role.values()[roleValue];
+		return role;
 	}
 	public void setRole(Role role) {
-		this.role = Role.values()[roleValue];
+		this.role = role;
 	}
 	@Override
 	 public void update(Account data) {

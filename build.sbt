@@ -18,8 +18,10 @@ libraryDependencies ++= Seq(
   "org.hibernate" % "hibernate-entitymanager" % "5.1.0.Final",
   "org.postgresql" % "postgresql" % "9.4.1208.jre7",
   cache,
-  "org.mindrot" % "jbcrypt" % "0.4m",
+  "org.mindrot" % "jbcrypt" % "0.3m",
   javaWs
 )
+
+javaOptions ++= Seq("-Xmx2048M", "-Xms512M", "-XX:MaxPermSize=2048M")
 
 fork in run := false
