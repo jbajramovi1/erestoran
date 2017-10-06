@@ -1,0 +1,38 @@
+<div class="containter container-default" >
+    <div class="landingPage">
+        <div class="mask">
+                <h2 class="home-title">Make a free reservation</h2>
+                <h4 class="home-subtitle">Choose your table from 750 restaurants near you</h4>
+                <div class="search-bar">
+                    <div class="inner-addon left-addon">
+                        <i class="glyphicon glyphicon-search"></i>
+                        <input type="text" class="form-control search-input" placeholder="Location, Restaurant or Cousine" />
+                    </div>
+                    <div class="dropdown-home dropdown-people">  
+                        <select class="select-home">
+                            <option value="1" selected>2 people</option>
+                        </select>
+                    </div>
+                    <div class="dropdown-home dropdown-date">
+                        {{date-picker class="datepicker" valueFormat='YYYY-MM-DD'}}
+                        
+                    </div>
+                    <div class="dropdown-home dropdown-time">  
+                        <select class="select-home">
+                            <option value="1" selected>7 PM</option>
+                        </select>
+                    </div>
+                    <button class="btn-outline btn-home">Find a table</button>
+                </div>
+        </div>
+    </div>
+
+    <h3 class="popular-title">Popular for lunch today</h3>
+    <div class="restaurant-list">
+        <div class="row restaurant-row">
+            <div class="col-md-3 col-sm-3 col-xs-8 restaurant-col"></div>
+            <div class="col-md-3 col-sm-3 col-xs-8 restaurant-col"></div>
+            <div class="col-md-3 col-sm-3 col-xs-8 restaurant-col"></div>
+        </div>
+    </div>
+</div>
