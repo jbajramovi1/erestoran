@@ -1,4 +1,4 @@
-<div class="containter container-default" >
+<div class="container-default" style="width:100vw overflow-x:hidden">
     <div class="landingPage">
         <div class="mask">
                 <h2 class="home-title">Make a free reservation</h2>
@@ -8,16 +8,16 @@
                         <i class="glyphicon glyphicon-search"></i>
                         <input type="text" class="form-control search-input" placeholder="Location, Restaurant or Cousine" />
                     </div>
-                    <div class="dropdown-home dropdown-people">  
+                    <div class="dropdown-home dropdown-people">
                         <select class="select-home">
                             <option value="1" selected>2 people</option>
                         </select>
                     </div>
                     <div class="dropdown-home dropdown-date">
-                        {{date-picker class="datepicker" valueFormat='YYYY-MM-DD'}}
-                        
+                        {{pikaday-input class="pikaday" format="MM/DD/YYYY" value="02/02/2017" theme="dark-theme" }}
+
                     </div>
-                    <div class="dropdown-home dropdown-time">  
+                    <div class="dropdown-home dropdown-time">
                         <select class="select-home">
                             <option value="1" selected>7 PM</option>
                         </select>
@@ -30,9 +30,155 @@
     <h3 class="popular-title">Popular for lunch today</h3>
     <div class="restaurant-list">
         <div class="row restaurant-row">
-            <div class="col-md-3 col-sm-3 col-xs-8 restaurant-col"></div>
-            <div class="col-md-3 col-sm-3 col-xs-8 restaurant-col"></div>
-            <div class="col-md-3 col-sm-3 col-xs-8 restaurant-col"></div>
+            <div class="col-md-3 col-sm-3 col-xs-8 restaurant-col">
+                <img class="restaurant-img" src="assets\images\home.jpg">
+                <p class="restaurant-name">Restaurant name</p>
+                <!--stars-->
+                <hr class="thin">
+                <p class="restaurant-category">Italian | International</p>
+                <button class="btn-outline btn-reserve">Reserve now</button>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-8 restaurant-col">
+                <img class="restaurant-img" src="assets\images\home.jpg">
+                <p class="restaurant-name">Restaurant name</p>
+                <!--stars-->
+                <hr class="thin">
+                <p class="restaurant-category">Italian | International</p>
+                <button class="btn-outline btn-reserve">Reserve now</button>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-8 restaurant-col">
+                <img class="restaurant-img" src="assets\images\home.jpg">
+                <p class="restaurant-name">Restaurant name</p>
+                <!--stars-->
+                <hr class="thin">
+                <p class="restaurant-category">Italian | International</p>
+                <button class="btn-outline btn-reserve">Reserve now</button>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-8 restaurant-col">
+                <img class="restaurant-img" src="assets\images\home.jpg">
+                <p class="restaurant-name">Restaurant name</p>
+                <!--stars-->
+                <hr class="thin">
+                <p class="restaurant-category">Italian | International</p>
+                <button class="btn-outline btn-reserve">Reserve now</button>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-8 restaurant-col">
+                <img class="restaurant-img" src="assets\images\home.jpg">
+                <p class="restaurant-name">Restaurant name</p>
+                <!--stars-->
+                <hr class="thin">
+                <p class="restaurant-category">Italian | International</p>
+                <button class="btn-outline btn-reserve">Reserve now</button>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-8 restaurant-col">
+                <img class="restaurant-img" src="assets\images\home.jpg">
+                <p class="restaurant-name">Restaurant name</p>
+                <!--stars-->
+                <hr class="thin">
+                <p class="restaurant-category">Italian | International</p>
+                <button class="btn-outline btn-reserve">Reserve now</button>
+            </div>
         </div>
-    </div>
+
+        </div>
+
+
+        <div class="specialsPage">
+            <div class="mask">
+                <h2 class="home-specials">Specials</h2>
+                <div class="row specials-row">
+                  {{#swiper-container pagination=true loop=true navigation=true}}
+                    {{#swiper-slide class='myslide myslide-1'}}
+                        <div class="row specials-items">
+                          <div class="col-md-3 col-sm-3 col-xs-2 specials-col">
+                              <img class="specials-img" src="assets\images\specials.jpg">
+                              <p class="specials-name">Best pizza</p>
+                              <hr class="thin">
+                              <p class="specials-location">New York | 12 restaurans</p>
+                          </div>
+                          <div class="col-md-3 col-sm-3 col-xs-2 specials-col">
+                              <img class="specials-img" src="assets\images\specials.jpg">
+                              <p class="specials-name">Best pizza</p>
+                              <hr class="thin">
+                              <p class="specials-location">New York | 12 restaurans</p>
+                          </div>
+                          <div class="col-md-3 col-sm-3 col-xs-2 specials-col">
+                              <img class="specials-img" src="assets\images\specials.jpg">
+                              <p class="specials-name">Best pizza</p>
+                              <hr class="thin">
+                              <p class="specials-location">New York | 12 restaurans</p>
+                          </div>
+                        </div>
+                    {{/swiper-slide}}
+                    {{#swiper-slide class='myslide myslide-1'}}
+                        <div class="row specials-items">
+                          <div class="col-md-3 col-sm-3 col-xs-2 specials-col">
+                              <img class="specials-img" src="assets\images\specials.jpg">
+                              <p class="specials-name">Best pizza</p>
+                              <hr class="thin">
+                              <p class="specials-location">New York | 12 restaurans</p>
+                          </div>
+                          <div class="col-md-3 col-sm-3 col-xs-2 specials-col">
+                              <img class="specials-img" src="assets\images\specials.jpg">
+                              <p class="specials-name">Best pizza</p>
+                              <hr class="thin">
+                              <p class="specials-location">New York | 12 restaurans</p>
+                          </div>
+                          <div class="col-md-3 col-sm-3 col-xs-2 specials-col">
+                              <img class="specials-img" src="assets\images\specials.jpg">
+                              <p class="specials-name">Best pizza</p>
+                              <hr class="thin">
+                              <p class="specials-location">New York | 12 restaurans</p>
+                          </div>
+                        </div>
+                    {{/swiper-slide}}
+
+                  {{/swiper-container}}
+                </div>
+            </div>
+        </div>
+
+        <div class="locationsPage">
+            <h2 class="home-locations">Popular locations</h2>
+            <div class="row locations-row">
+                  <div class="col-md-2 col-sm-2 col-xs-4 locations-col">
+                    <p class="location-name">West Willieville</p>
+                    <p class="location-number">200 restaurants</p>
+                  </div>
+                  <div class="col-md-2 col-sm-2 col-xs-4 locations-col">
+                    <p class="location-name">West Willieville</p>
+                    <p class="location-number">200 restaurants</p>
+                  </div>
+                  <div class="col-md-2 col-sm-2 col-xs-4 locations-col">
+                    <p class="location-name">West Willieville</p>
+                    <p class="location-number">200 restaurants</p>
+                  </div>
+                  <div class="col-md-2 col-sm-2 col-xs-4 locations-col">
+                    <p class="location-name">West Willieville</p>
+                    <p class="location-number">200 restaurants</p>
+                  </div>
+                  <div class="col-md-2 col-sm-2 col-xs-4 locations-col">
+                    <p class="location-name">West Willieville</p>
+                    <p class="location-number">200 restaurants</p>
+                  </div>
+                  <div class="col-md-2 col-sm-2 col-xs-4 locations-col">
+                    <p class="location-name">West Willieville</p>
+                    <p class="location-number">200 restaurants</p>
+                  </div>
+                  <div class="col-md-2 col-sm-2 col-xs-4 locations-col">
+                    <p class="location-name">West Willieville</p>
+                    <p class="location-number">200 restaurants</p>
+                  </div>
+                  <div class="col-md-2 col-sm-2 col-xs-4 locations-col">
+                    <p class="location-name">West Willieville</p>
+                    <p class="location-number">200 restaurants</p>
+                  </div>
+
+            </div>
+        </div>
+
+        <div class="footer">
+          <p class="footer-text">Copyright © 2017 All rights reserved.</p>
+        </div>
+
 </div>
