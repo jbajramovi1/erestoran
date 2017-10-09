@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/eRestoran.iml" filepath="$PROJECT_DIR$/eRestoran.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/root.iml" filepath="$PROJECT_DIR$/.idea/modules/root.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/root-build.iml" filepath="$PROJECT_DIR$/.idea/modules/root-build.iml" />
-      <module fileurl="file://$PROJECT_DIR$/project/target/scala-2.10/sbt-0.13/.idea/modules/sbt-0-13.iml" filepath="$PROJECT_DIR$/project/target/scala-2.10/sbt-0.13/.idea/modules/sbt-0-13.iml" />
-      <module fileurl="file://$PROJECT_DIR$/project/target/scala-2.10/sbt-0.13/.idea/modules/sbt-0-13-build.iml" filepath="$PROJECT_DIR$/project/target/scala-2.10/sbt-0.13/.idea/modules/sbt-0-13-build.iml" />
     </modules>
   </component>
 </project>
