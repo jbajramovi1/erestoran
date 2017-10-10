@@ -3,6 +3,7 @@
 @import "sections/register.css";
 @import "sections/home.css";
 @import "sections/restaurant.css";
+@import "sections/reservation-bar.css";
 
 
 body{

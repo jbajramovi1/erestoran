@@ -9,19 +9,52 @@
         <h3 class="rest-name">Restaurant name</h3>
         <!--stars-->
         <p class="rest-category">Italian | International</p>
-        <button class="rate-btn btn-outline">Rate this place</button>
+        <button class="rate-btn btn-outline">Rate this place <span class="glyphicon glyphicon-star"></span></button>
     </div>
     </div>
   </div>
+
+
+  <ul class="nav navbar-left nav-restaurant">
+      <li class="nav-item"><a href="#">Reservation</a></li>
+      <li class="nav-item"><a href="#">About</a></li>
+      <li class="nav-item "><a href="#">Menu</a></li>
+      <li class="nav-item "><a href="#">Photos</a></li>
+  </ul>
   <div class="rest-container">
     <div class="rest-div div-reserve">
       <p class="rest-subtitle">Make a free reservation</p>
+      <div class="res-bar">
+        {{#reservation-bar }}{{/reservation-bar}}
+      </div>
     </div>
     <div class="rest-div div-desc">
       <p class="rest-subtitle">About Restaurant name</p>
+      <div class="map">
+        {{g-maps lat=lat lng=lng zoom=zoom markers=markers }}
+      </div>
+      <p class="rest-subtitle">Description</p>
+      <p class="rest-description">
+        You may be a person who loves to cook. You absolutely love to spend time in your kitchen.
+        As a result, you like to outfit your kitchen with the latest and with the best cookware
+        that is available on the market. However, and with that said, if you are like most people
+        in the 21st century, you also live your life on a budget.
+      </p>
     </div>
     <div class="rest-div div-menu">
       <p class="rest-subtitle">Menu</p>
+      <ul class="nav navbar-nav navbar-left nav-menu">
+          <li class="nav-item"><a href="#">Breakfast</a></li>
+          <li class="nav-item "><a href="#">Lunch</a></li>
+          <li class="nav-item "><a href="#">Dinner</a></li>
+      </ul>
+
+      <ul class="menu">
+        <li><span>Broccoli Rabe</span><span>$8.95</span></li>
+        <li><span>Fried Mozzarell</span><span>$8.95</span></li>
+      </ul>
+
+
     </div>
   </div>
 

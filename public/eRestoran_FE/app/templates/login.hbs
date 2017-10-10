@@ -1,27 +1,27 @@
 <div class="container" id="normal-container">
    <div class="login-form">
    <div class="row row-login">
-   	
+
       <div class="col-md-12 col-sm-8 col-xs-12 col-centered">
           <form >
           <div class="row" >
               {{input value=username class="login-input" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'"
                     type="text"}}
                 <i class="glyphicon glyphicon-user form-control-feedback pull-right" aria-hidden="true" style="margin-top: 10px; position: absolute; color:lightslategray"></i>
-            
+
           </div>
           <div class="row">
               {{input value=password class="login-input" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'"
-                    type="text"}}
+                    type="password"}}
                 <i class="glyphicon glyphicon-lock form-control-feedback pull-right" aria-hidden="true" style="margin-top: 60px; color:lightslategray"></i>
-            
+
           </div>
           </form>
        </div>
-      
-   
+
+
    <button {{action "authenticate"}} class="btn btn-primary btn-outline btn-login" style="width: 100%">LOGIN</button>
    <a class="register-link">Register now!</a>
-     </div>  
+     </div>
    </div>
 </div>
