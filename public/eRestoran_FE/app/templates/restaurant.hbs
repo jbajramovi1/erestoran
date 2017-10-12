@@ -9,8 +9,7 @@
         <h3 class="rest-name">Restaurant name</h3>
         <!--stars-->
         <p class="rest-category">Italian | International</p>
-        <button class="rate-btn btn-outline">Rate this place <span class="glyphicon glyphicon-star"></span></button>
-    </div>
+      </div>
     </div>
   </div>
 
@@ -56,6 +55,11 @@
 
 
     </div>
+    {{#rate-modal value=modal enabled=false title="--Simple Modal--"}}
+     This is our modal - now with Ember 2.0 capabilities! (Click anywhere to dismiss this notification.)
+    {{/rate-modal}}
   </div>
+
+
 
 </div>

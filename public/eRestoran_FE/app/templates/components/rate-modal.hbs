@@ -1,0 +1,17 @@
+<button {{action 'toggleModal'}} class="rate-btn btn-outline">Rate this place <span class="glyphicon glyphicon-star"></span></button>
+
+{{#if enabled}}
+  <div {{action 'toggleModal'}} class="modal-fog">
+    <div class="modal-frame">
+      <div class="modal-title">
+        Rate this place
+      </div>
+      <div class="modal-body">
+        <!--stars-->
+        {{textarea value=review class="review-input input-large" placeholder="Write a review..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Write a review...'"
+              type="text"}}
+        <button class="save-rate-btn">Save</button>
+      </div>
+    </div>
+  </div>
+{{/if}}
