@@ -7,7 +7,8 @@
         Rate this place
       </div>
       <div class="modal-body">
-        <!--stars-->
+        {{star-rating 2.5 id="stars" baseColor="lightgray" fillColor="#Fe4a49"}}
+        <!--stars  onClick=(action ...) readOnly=false/true-->
         {{textarea value=review class="review-input input-large" placeholder="Write a review..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Write a review...'"
               type="text"}}
         <button class="save-rate-btn">Save</button>
