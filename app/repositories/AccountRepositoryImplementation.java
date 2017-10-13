@@ -19,12 +19,12 @@ public class AccountRepositoryImplementation extends BaseRepositoryImplementatio
 		Account acc= (Account) getBaseCriteria()
     			.add(Restrictions.eq("email", account.getEmail()))
     			.uniqueResult();
-		if(acc != null && BCrypt.checkpw("password", account.getPassword())) {
+		if(acc != null && BCrypt.checkpw(account.getPassword(),acc.getPassword())) {
             return account;
         }
 
         return null;
 	}
-	
+
 	
 }

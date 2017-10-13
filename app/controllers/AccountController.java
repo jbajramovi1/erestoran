@@ -30,16 +30,17 @@ public class AccountController extends BaseController<Account, AccountService> {
 			return ok(Json.toJson(service.getByEmailAndPassword(form.get(),session())));
 		}
 		catch(ServiceException e){
-			Logger.error("Service error in AccountController@login");
+			Logger.error("Service error in AccountController@login",e);
 			return badRequest(Json.toJson(""));
 		}
 		catch(Exception e) {
-			Logger.error("Error in AccountController@login");
+			Logger.error("Error in AccountController@login",e);
             return internalServerError(Json.toJson("Internal server error in AccountController@login"));
         }
 		
 	}
-	
+
+	@Transactional
    public Result register(){
 	   try{
 		   Form<Account> form=formFactory.form(Account.class).bindFromRequest();
@@ -47,15 +48,15 @@ public class AccountController extends BaseController<Account, AccountService> {
 			   Logger.error("Form error");
 			   return badRequest(Json.toJson("Form error"));
 		   }
-		   form.get().setPassword((BCrypt.hashpw(form.get().getPassword(), BCrypt.gensalt())));
+
 		   return ok(Json.toJson(service.create(form.get())));
 	   }
 	   catch(ServiceException e){
-		   Logger.error("Service error in AccountController@register");
+		   Logger.error("Service error in AccountController@register",e);
 			return badRequest(Json.toJson(""));
 		}
 		catch(Exception e) {
-			Logger.error("Error in AccountController@login");
+			Logger.error("Error in AccountController@register",e);
            return internalServerError(Json.toJson("Internal server error in AccountController@register"));
 	   }
    }

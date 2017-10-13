@@ -36,7 +36,7 @@ public class BaseRepositoryImplementation<M> implements BaseRepository<M> {
 	      JPA.em().flush();
 	    } 
 	    catch (PersistenceException e) {
-	      Logger.error("ServiceException in BaseRepository@create");
+	      Logger.error("ServiceException in BaseRepository@create",e);
 	      throw new RepositoryException(e.toString());
 	    }
 	  }
@@ -47,7 +47,7 @@ public class BaseRepositoryImplementation<M> implements BaseRepository<M> {
 	      JPA.em().flush();
 	    } 
 	    catch (PersistenceException e) {
-	      Logger.error("ServiceException in BaseRepository@update");
+	      Logger.error("ServiceException in BaseRepository@update",e);
 	      throw new RepositoryException(e.toString());
 	    }
 	  }
@@ -58,7 +58,7 @@ public class BaseRepositoryImplementation<M> implements BaseRepository<M> {
 	      JPA.em().flush();
 	    } 
 	    catch (PersistenceException e) {
-	      Logger.error("ServiceException in BaseRepository@delete");
+	      Logger.error("ServiceException in BaseRepository@delete",e);
 	      throw new RepositoryException(e.toString());
 	    }
 	  }

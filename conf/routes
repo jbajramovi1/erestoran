@@ -9,7 +9,7 @@ GET     /                           controllers.HomeController.index
 
 #GET  /api/v1/user/:id @controllers.AccountController.get(Long id)
 #PUT  /api/v1/user/:id @controllers.AccountController.update(Long id)
-POST /api/v1/user @controllers.AccountController.create()
+POST /api/v1/user @controllers.AccountController.register()
 #DELETE /api/v1/user/:id @controllers.AccountController.delete(Long id)
 
 POST /api/v1/login @controllers.AccountController.login()

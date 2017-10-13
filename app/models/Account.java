@@ -13,7 +13,7 @@ public class Account extends BaseModel<Account> {
 	private String password;
 	@Enumerated(value = EnumType.STRING)
 	@Column(name = "role")
-	private Role role;
+	private Role role=Role.USER;
 	@Basic
     @Column(name = "phone")
 	private String phone;
