@@ -18,7 +18,6 @@ public class AccountService extends BaseService<Account, AccountRepository> {
 		Account account=repository.getByEmail(data);
 		if (account==null){
 			throw new ServiceException("entity not found");
-	
 		}
 		
 		return account;
@@ -30,7 +29,6 @@ public class AccountService extends BaseService<Account, AccountRepository> {
 		if (account==null){
 			Logger.error("entity not found",data.getEmail(),data.getPassword());
 			throw new ServiceException("entity not found");
-	
 		}
 		session.clear();
         session.put("username",account.getEmail());

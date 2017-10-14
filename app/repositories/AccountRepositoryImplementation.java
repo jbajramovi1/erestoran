@@ -22,7 +22,6 @@ public class AccountRepositoryImplementation extends BaseRepositoryImplementatio
 		if(acc != null && BCrypt.checkpw(account.getPassword(),acc.getPassword())) {
             return account;
         }
-
         return null;
 	}
 

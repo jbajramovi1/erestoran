@@ -6,7 +6,6 @@ export default Ember.Service.extend({
 
     userLogin(email,password) {
     return $.ajax({
-        
         method:'POST',
         url:'/api/v1/login',
         data: JSON.stringify({
