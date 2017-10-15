@@ -1,9 +1,10 @@
 import Ember from 'ember';
-
+import Restaurant from '../models/restaurant';
 
 export default Ember.Route.extend({
-
+restaurantservice: Ember.inject.service('restaurant-service'),
   setupController: function(controller) {
+
     controller.setProperties({
       lat: 34.751603,
       lng: -82.0463009,
@@ -19,7 +20,10 @@ export default Ember.Route.extend({
         ])
     });
   },
-
-
+  model(params){
+      var restaurant = Restaurant.create({});
+      restaurant= this.get('restaurantservice').getById(params.id);
+      return restaurant;
+    }
 
 });
