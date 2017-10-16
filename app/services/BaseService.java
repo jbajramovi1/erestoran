@@ -19,13 +19,14 @@ public abstract class BaseService<M extends BaseModel<M>, R extends BaseReposito
 	}
 
 	public M get(Long id) throws ServiceException  {
-	    M model = repository.findById(id);
+
+		M model = repository.findById(id);
 	
 	    if (model != null) {
 	      return model;
 	    }
-	
-	    //Logger.error(message);
+
+		//Logger.error(message);
 	    throw new ServiceException("Service Exception BaseService@get");
 	  }
 	

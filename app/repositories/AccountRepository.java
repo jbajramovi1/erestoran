@@ -9,6 +9,7 @@ import services.exceptions.ServiceException;
 
 @ImplementedBy(AccountRepositoryImplementation.class)
 public interface AccountRepository extends BaseRepository<Account> {
-	public Account getByEmail(Account account);
-	public Account getByEmailAndPassword(Account account);
+    public Account getByEmail(Account account);
+
+    public Account getByEmailAndPassword(Account account);
 }

@@ -21,7 +21,7 @@ public abstract class BaseFilterModel<B extends BaseFilterModel> {
     }
 
     protected Criteria addLimitAndOffset(Criteria rootCriteria) {
-        if(getPageNumber() == null) {
+        if (getPageNumber() == null) {
             setPageNumber(0);
         }
         rootCriteria.setFirstResult(getPageNumber() * getPageSize());

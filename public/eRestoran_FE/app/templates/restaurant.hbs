@@ -6,9 +6,9 @@
         <img class="rest-img" src="/assets/images/restaurant.jpg"><img>
       </div>
       <div class="rest-main">
-        <h3 class="rest-name">{{model.id}}</h3>
+        <h3 class="rest-name">{{model.name}}</h3>
         <!--stars-->
-        <p class="rest-category">Italian | International</p>
+        <p class="rest-category">{{model.category}}</p>
       </div>
     </div>
   </div>
@@ -33,12 +33,7 @@
         {{g-maps lat=lat lng=lng zoom=zoom markers=markers }}
       </div>
       <p class="rest-subtitle">Description</p>
-      <p class="rest-description">
-        You may be a person who loves to cook. You absolutely love to spend time in your kitchen.
-        As a result, you like to outfit your kitchen with the latest and with the best cookware
-        that is available on the market. However, and with that said, if you are like most people
-        in the 21st century, you also live your life on a budget.
-      </p>
+      <p class="rest-description">{{model.description}}</p>
     </div>
     <div class="rest-div div-menu">
       <p class="rest-subtitle">Menu</p>
@@ -59,7 +54,5 @@
      This is our modal - now with Ember 2.0 capabilities! (Click anywhere to dismiss this notification.)
     {{/rate-modal}}
   </div>
-
-
 
 </div>

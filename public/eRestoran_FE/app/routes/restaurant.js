@@ -2,9 +2,9 @@ import Ember from 'ember';
 import Restaurant from '../models/restaurant';
 
 export default Ember.Route.extend({
-restaurantservice: Ember.inject.service('restaurant-service'),
-  setupController: function(controller) {
+  service: Ember.inject.service('restaurant-service'),
 
+/*  setupController: function(controller) {
     controller.setProperties({
       lat: 34.751603,
       lng: -82.0463009,
@@ -17,13 +17,12 @@ restaurantservice: Ember.inject.service('restaurant-service'),
         animation: google.maps.Animation.DROP,
         visible: true,
       }
-        ])
+    ]),
     });
-  },
+  },*/
+
   model(params){
-      var restaurant = Restaurant.create({});
-      restaurant= this.get('restaurantservice').getById(params.id);
-      return restaurant;
-    }
+    return Restaurant.create(this.get('service').getById(params.id));
+  }
 
 });
