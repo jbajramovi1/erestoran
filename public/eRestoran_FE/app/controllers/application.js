@@ -11,7 +11,7 @@ export default Ember.Controller.extend({
     },
     unauthenticate(){
       this.set('isAuthenticated',false);
-
+      this.get('session').unauthenticate();
     }
   }
 });

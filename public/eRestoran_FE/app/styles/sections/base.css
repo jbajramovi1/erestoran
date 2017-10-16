@@ -7,6 +7,16 @@ body{
 	min-height: 100%;
 }
 
+.nav-link{
+  color: #9d9d9d!important;
+}
+
+.nav-link:hover{
+  color: #9d9d9d!important;
+  text-decoration: none!important;
+  text-shadow: 1px 0px #9d9d9d;
+}
+
 
 .v-align-center{
     display: inline-block;
