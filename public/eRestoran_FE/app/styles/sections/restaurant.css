@@ -33,7 +33,7 @@
 
 .rest-main{
   position: absolute;
-  top: 210px;
+  top: 190px;
   left:420px;
   width: 100%;
   color: white;
@@ -42,7 +42,7 @@
 
 .rate-btn{
   position: absolute;
-  top:-93px!important;
+  top:-113px!important;
   left: 220px;
   color: white;
   background-color: #Fe4a49;

@@ -16,5 +16,7 @@ POST /api/v1/login @controllers.AccountController.login()
 
 
 GET  /api/v1/restaurant/:id @controllers.RestaurantController.get(id:Long)
+
+POST /api/v1/comment @controllers.CommentController.create()
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

@@ -12,12 +12,12 @@ import javax.persistence.Table;
 public class Reservation extends BaseModel<Reservation> {
     @Basic
     @Column(name = "tables", nullable = false)
-    Integer tables;
+    private Integer tables;
     @Basic
     @Column(name = "date", nullable = false)
-    DateTime date;
-    //+person
-    //+restaurant
+    private DateTime date;
+    //USER
+    //RESTAURANT
 
     public Integer getTables() {
         return tables;
@@ -43,6 +43,7 @@ public class Reservation extends BaseModel<Reservation> {
         if (data.getDate() != null) {
             setDate(data.getDate());
         }
+
     }
 
 }

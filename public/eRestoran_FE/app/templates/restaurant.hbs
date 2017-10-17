@@ -7,7 +7,7 @@
       </div>
       <div class="rest-main">
         <h3 class="rest-name">{{model.name}}</h3>
-        <!--stars-->
+          {{star-rating rating=model.mark id="stars-display" baseColor="lightgray" fillColor="#Fe4a49" readOnly=true}}
         <p class="rest-category">{{model.category}}</p>
       </div>
     </div>
@@ -50,9 +50,7 @@
 
 
     </div>
-    {{#rate-modal value=modal enabled=false title="--Simple Modal--"}}
-     This is our modal - now with Ember 2.0 capabilities! (Click anywhere to dismiss this notification.)
-    {{/rate-modal}}
+    {{#rate-modal value=modal model=model enabled=false}}{{/rate-modal}}
   </div>
 
 </div>
