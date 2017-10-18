@@ -2,10 +2,7 @@ package models;
 
 import org.joda.time.DateTime;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "reservation")
@@ -14,10 +11,14 @@ public class Reservation extends BaseModel<Reservation> {
     @Column(name = "tables", nullable = false)
     private Integer tables;
     @Basic
-    @Column(name = "date", nullable = false)
-    private DateTime date;
-    //USER
-    //RESTAURANT
+    @Column(name = "reservation_date", nullable = false)
+    private DateTime reservationDate;
+    @ManyToOne
+    @JoinColumn(name="account_id", nullable=false)
+    private Account account;
+    @ManyToOne
+    @JoinColumn(name = "restaurant_id", nullable=false)
+    private Restaurant restaurant;
 
     public Integer getTables() {
         return tables;
@@ -27,12 +28,28 @@ public class Reservation extends BaseModel<Reservation> {
         this.tables = tables;
     }
 
-    public DateTime getDate() {
-        return date;
+    public DateTime getReservationDate() {
+        return reservationDate;
     }
 
-    public void setDate(DateTime date) {
-        this.date = date;
+    public void setReservationDate(DateTime date) {
+        this.reservationDate = date;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
+    }
+
+    public Restaurant getRestaurant() {
+        return restaurant;
+    }
+
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
     }
 
     @Override
@@ -40,8 +57,14 @@ public class Reservation extends BaseModel<Reservation> {
         if (data.getTables() != null) {
             setTables(data.getTables());
         }
-        if (data.getDate() != null) {
-            setDate(data.getDate());
+        if (data.getReservationDate() != null) {
+            setReservationDate(data.getReservationDate());
+        }
+        if (data.getAccount() != null) {
+            setAccount(data.getAccount());
+        }
+        if (data.getAccount() != null) {
+            setAccount(data.getAccount());
         }
 
     }

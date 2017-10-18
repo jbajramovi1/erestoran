@@ -2,10 +2,7 @@ package models;
 
 import org.joda.time.DateTime;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "comment")
@@ -19,8 +16,13 @@ public class Comment extends BaseModel<Comment> {
     @Basic
     @Column(name = "insert_date")
     private DateTime insertTime;
-    //USER
-    //RESTAURANT
+    @ManyToOne
+    @JoinColumn(name="account_id", nullable=false)
+    private Account account;
+    @ManyToOne
+    @JoinColumn(name = "restaurant_id", nullable=false)
+    private Restaurant restaurant;
+
 
     public String getContent() {
         return content;
@@ -46,6 +48,22 @@ public class Comment extends BaseModel<Comment> {
         this.insertTime = insertTime;
     }
 
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
+    }
+
+    public Restaurant getRestaurant() {
+        return restaurant;
+    }
+
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
+    }
+
     @Override
     public void update(Comment data) {
         if (data.getContent() != null) {
@@ -56,6 +74,12 @@ public class Comment extends BaseModel<Comment> {
         }
         if (data.getInsertTime() != null) {
             setInsertTime(data.getInsertTime());
+        }
+        if (data.getAccount() != null) {
+            setAccount(data.getAccount());
+        }
+        if (data.getRestaurant() != null) {
+            setRestaurant(data.getRestaurant());
         }
 
     }

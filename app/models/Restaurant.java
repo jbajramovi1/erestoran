@@ -1,6 +1,11 @@
 package models;
 
+
+
+import java.util.List;
+
 import javax.persistence.*;
+
 
 @Entity
 @Table(name = "restaurant")
@@ -29,6 +34,11 @@ public class Restaurant extends BaseModel<Restaurant> {
     @Basic
     @Column(name = "category")
     private String category;
+    @OneToMany(mappedBy = "restaurant")
+    private List<Comment> comments;
+    @OneToMany(mappedBy = "restaurant")
+    private List<Reservation> reservations;
+
     //+LOCATION
 
 
@@ -96,6 +106,22 @@ public class Restaurant extends BaseModel<Restaurant> {
         this.category = category;
     }
 
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+
     @Override
     public void update(Restaurant data) {
         if (data.getName() != null) {
@@ -121,6 +147,12 @@ public class Restaurant extends BaseModel<Restaurant> {
         }
         if (data.getCategory() != null) {
             setCategory(data.getCategory());
+        }
+        if (data.getComments() != null) {
+            setComments(data.getComments());
+        }
+        if (data.getReservations() != null) {
+            setReservations(data.getReservations());
         }
     }
 

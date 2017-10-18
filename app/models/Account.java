@@ -1,6 +1,9 @@
 package models;
 
+import java.util.List;
+
 import javax.persistence.*;
+
 
 @Entity
 @Table(name = "account")
@@ -29,6 +32,10 @@ public class Account extends BaseModel<Account> {
     @Basic
     @Column(name = "last_name")
     private String lastName;
+    @OneToMany( targetEntity = Comment.class,mappedBy = "account")
+    private List<Comment> comments;
+    @OneToMany(targetEntity = Reservation.class,mappedBy = "account")
+    private List<Reservation> reservations;
 
 
     public String getEmail() {
@@ -95,6 +102,22 @@ public class Account extends BaseModel<Account> {
         this.role = role;
     }
 
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+
     @Override
     public void update(Account data) {
         if (data.getFirstName() != null) {
@@ -114,6 +137,12 @@ public class Account extends BaseModel<Account> {
         }
         if (data.getRole() != null) {
             setRole(data.getRole());
+        }
+        if (data.getComments() != null) {
+            setComments(data.getComments());
+        }
+        if (data.getReservations() != null) {
+            setReservations(data.getReservations());
         }
     }
 
