@@ -1,17 +1,16 @@
 import Ember from 'ember';
 
 export default Ember.Service.extend({
-  leaveComment(content,mark,restaurant_id,account_id) {
+  createReservation(tables,account_id,restaurant_id) {
   return $.ajax({
       method:'POST',
-      url:'/api/v1/comment',
+      url:'/api/v1/reservation',
       data: JSON.stringify({
-          content,
-          mark,
+          tables,
           account_id,
           restaurant_id
       }),
       contentType:"application/json"
   })
-}
+  }
 });

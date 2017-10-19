@@ -8,9 +8,9 @@ export default Ember.Component.extend({
             this.toggleProperty('enabled');
         },
         saveRating:function(){
-          this.get('comment').leaveComment(this.get('review'),this.get('stars'));
+          this.get('comment').leaveComment(this.get('review'),this.get('stars'),this.get('model.id'),32);
           this.toggleProperty('enabled');
-          alert(this.get('model.id'));
+
         },
         rate:function(params){
           this.set('stars',params);

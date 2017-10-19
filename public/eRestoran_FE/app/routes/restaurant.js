@@ -2,8 +2,7 @@ import Ember from 'ember';
 import Restaurant from '../models/restaurant';
 
 export default Ember.Route.extend({
-  service: Ember.inject.service('restaurant-service'),
-
+  restaurant: Ember.inject.service('restaurant-service'),
   setupController: function(controller,model) {
     this._super(controller, model);
     controller.setProperties({
@@ -23,7 +22,7 @@ export default Ember.Route.extend({
   },
 
   model(params){
-    return Restaurant.create(this.get('service').getById(params.id));
+    return Restaurant.create(this.get('restaurant').getById(params.id));
   }
 
 });

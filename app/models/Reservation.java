@@ -1,23 +1,21 @@
 package models;
 
-import org.joda.time.DateTime;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "reservation")
 public class Reservation extends BaseModel<Reservation> {
-    @Basic
-    @Column(name = "tables", nullable = false)
+    @Column
     private Integer tables;
-    @Basic
-    @Column(name = "reservation_date", nullable = false)
-    private DateTime reservationDate;
+    @Column(name = "reservation_date")
+    private Date reservationDate;
     @ManyToOne
-    @JoinColumn(name="account_id", nullable=false)
+    @JoinColumn(name="account_id")
     private Account account;
     @ManyToOne
-    @JoinColumn(name = "restaurant_id", nullable=false)
+    @JoinColumn(name = "restaurant_id")
     private Restaurant restaurant;
 
     public Integer getTables() {
@@ -28,11 +26,11 @@ public class Reservation extends BaseModel<Reservation> {
         this.tables = tables;
     }
 
-    public DateTime getReservationDate() {
+    public Date getReservationDate() {
         return reservationDate;
     }
 
-    public void setReservationDate(DateTime date) {
+    public void setReservationDate(Date date) {
         this.reservationDate = date;
     }
 

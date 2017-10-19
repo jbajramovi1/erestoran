@@ -2,7 +2,7 @@
 create table restaurant(
 id bigint not null,
 name varchar(255),
-description varchar(2000) not null,
+description text not null,
 mark bigint ,
 votes bigint,
 price_range bigint,

@@ -1,26 +1,24 @@
 package models;
 
-import org.joda.time.DateTime;
+
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "comment")
 public class Comment extends BaseModel<Comment> {
-    @Basic
-    @Column(name = "content")
+    @Column
     private String content;
-    @Basic
-    @Column(name = "mark", nullable = false)
+    @Column
     private Integer mark;
-    @Basic
     @Column(name = "insert_date")
-    private DateTime insertTime;
+    private Date insertTime;
     @ManyToOne
-    @JoinColumn(name="account_id", nullable=false)
+    @JoinColumn(name="account_id")
     private Account account;
     @ManyToOne
-    @JoinColumn(name = "restaurant_id", nullable=false)
+    @JoinColumn(name = "restaurant_id")
     private Restaurant restaurant;
 
 
@@ -40,11 +38,11 @@ public class Comment extends BaseModel<Comment> {
         this.mark = mark;
     }
 
-    public DateTime getInsertTime() {
+    public Date getInsertTime() {
         return insertTime;
     }
 
-    public void setInsertTime(DateTime insertTime) {
+    public void setInsertTime(Date insertTime) {
         this.insertTime = insertTime;
     }
 

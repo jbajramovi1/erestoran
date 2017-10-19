@@ -37,7 +37,7 @@ public abstract class BaseController<M extends BaseModel<M>, S extends BaseServi
         try {
             return ok(Json.toJson(service.get(id)));
         } catch (Exception e) {
-            Logger.error("Internal server error in BaseController@get");
+            Logger.error("Internal server error in BaseController@get",e);
             return internalServerError("Internal server error in BaseController@get");
         }
     }
@@ -51,10 +51,10 @@ public abstract class BaseController<M extends BaseModel<M>, S extends BaseServi
             }
             return ok(Json.toJson(service.create(form.get())));
         } catch (ServiceException e) {
-            Logger.error("Service error in BaseController@create");
+            Logger.error("Service error in BaseController@create",e);
             return badRequest("Service error in BaseController@create");
         } catch (Exception e) {
-            Logger.error("Internal server error in BaseController@create");
+            Logger.error("Internal server error in BaseController@create",e);
             return internalServerError("Internal server error in BaseController@create");
         }
     }
@@ -68,10 +68,10 @@ public abstract class BaseController<M extends BaseModel<M>, S extends BaseServi
             }
             return ok(Json.toJson(service.update(id, form.get())));
         } catch (ServiceException e) {
-            Logger.error("Service error in BaseController@update");
+            Logger.error("Service error in BaseController@update",e);
             return badRequest("Service error in BaseController@update");
         } catch (Exception e) {
-            Logger.error("Internal server error in BaseController@update");
+            Logger.error("Internal server error in BaseController@update",e);
             return internalServerError("Internal server error in BaseController@update");
         }
     }
@@ -82,10 +82,10 @@ public abstract class BaseController<M extends BaseModel<M>, S extends BaseServi
             service.delete(id);
             return ok(Json.toJson("success"));
         } catch (ServiceException e) {
-            Logger.error("Service error in BaseController@delete");
+            Logger.error("Service error in BaseController@delete",e);
             return badRequest("Service error in BaseController@delete");
         } catch (Exception e) {
-            Logger.error("Internal server error in BaseController@delete");
+            Logger.error("Internal server error in BaseController@delete",e);
             return internalServerError("Internal server error in BaseController@delete");
         }
     }
