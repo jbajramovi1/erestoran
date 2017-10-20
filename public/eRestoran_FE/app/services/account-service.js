@@ -30,5 +30,13 @@ export default Ember.Service.extend({
         contentType:"application/json"
 
     })
+  },
+  logout(){
+    return $.ajax({
+        method:'GET',
+        url:'/api/v1/logout',
+        contentType:"application/json"
+
+    })
   }
 });

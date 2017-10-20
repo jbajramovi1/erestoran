@@ -57,4 +57,11 @@ public class AccountController extends BaseController<Account, AccountService> {
             return internalServerError(Json.toJson("Internal server error in AccountController@register"));
         }
     }
+
+    @Transactional
+    public Result logout(){
+
+        session().clear();
+        return ok();
+    }
 }

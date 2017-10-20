@@ -22,6 +22,7 @@ export default Ember.Controller.extend({
            autoClear: true,
            clearDuration: 1500
          });
+         
      });
     }
   }

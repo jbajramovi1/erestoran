@@ -12,4 +12,5 @@ export default Ember.Service.extend({
   unauthenticate(){
     this.set('currentUser',null);
   }
+
 });
