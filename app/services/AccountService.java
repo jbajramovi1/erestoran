@@ -37,7 +37,6 @@ public class AccountService extends BaseService<Account, AccountRepository> {
     public Account create(Account model) throws ServiceException {
         try {
             model.setPassword((BCrypt.hashpw(model.getPassword(), BCrypt.gensalt())));
-            //if (model.getRole() == null) { }
             repository.create(model);
             return model;
         } catch (RepositoryException e) {

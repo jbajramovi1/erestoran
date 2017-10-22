@@ -2,7 +2,7 @@
 create table comment(
 id bigint not null,
 content text,
-mark bigint not null,
+mark float not null,
 insert_date date,
 account_id bigint,
 restaurant_id bigint,

@@ -13,6 +13,7 @@ export default Ember.Controller.extend({
             autoClear: true,
             clearDuration: 1500
           });
+          
            this.get('sessionService').authenticate(username,password);
            this.get('applicationController').send('authenticate');
            this.transitionToRoute('home');
@@ -22,7 +23,7 @@ export default Ember.Controller.extend({
            autoClear: true,
            clearDuration: 1500
          });
-         
+
      });
     }
   }

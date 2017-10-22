@@ -7,8 +7,8 @@ role varchar(255) ,
 phone varchar(255),
 country varchar(255),
 city varchar(255),
-firstName varchar(255),
-lastName varchar(255),
+first_name varchar(255),
+last_name varchar(255),
 constraint account_pk_test primary key (id));
 
  # --- !Downs

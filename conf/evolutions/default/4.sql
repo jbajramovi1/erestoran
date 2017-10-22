@@ -3,7 +3,6 @@ create table reservation(
 id bigint not null,
 tables bigint,
 reservation_date date ,
-phone varchar(255),
 account_id bigint,
 restaurant_id bigint,
 constraint reservation_pk_test primary key (id),

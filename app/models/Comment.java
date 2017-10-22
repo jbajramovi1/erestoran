@@ -11,7 +11,7 @@ public class Comment extends BaseModel<Comment> {
     @Column
     private String content;
     @Column
-    private Integer mark;
+    private Float mark;
     @Column(name = "insert_date")
     private Date insertTime;
     @ManyToOne
@@ -30,11 +30,11 @@ public class Comment extends BaseModel<Comment> {
         this.content = content;
     }
 
-    public Integer getMark() {
+    public Float getMark() {
         return mark;
     }
 
-    public void setMark(Integer mark) {
+    public void setMark(Float mark) {
         this.mark = mark;
     }
 

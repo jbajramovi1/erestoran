@@ -8,7 +8,7 @@
     </select>
 </div>
 <div class="dropdown-home dropdown-date">
-    {{pikaday-input class="pikaday" format="MM/DD/YYYY" value="02/02/2017" theme="dark-theme" }}
+    {{pikaday-input class="pikaday" format="MM/DD/YYYY" theme="dark-theme" value=date onSelection=(action 'selectDate')}}
 </div>
 <div class="dropdown-home dropdown-time">
   <select class="select-home" onchange={{action "selectTime" value="target.value"}}>
