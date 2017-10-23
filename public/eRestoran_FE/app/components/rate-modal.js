@@ -9,15 +9,15 @@ export default Ember.Component.extend({
   stars:5,
   actions: {
         toggleModal: function() {
-          //if (this.get('sessionService').getCurrentUser()!=null) {
+          if (this.get('sessionService').getCurrentUser()!=null) {
             this.toggleProperty('enabled');
-        /*  }
+         }
           else {
           this.get('notifications').error('Please login to continue', {
            autoClear: true,
            clearDuration: 1500
          });
-       }*/
+       }
         },
         saveRating:function(){
           var account=Account.create({});
