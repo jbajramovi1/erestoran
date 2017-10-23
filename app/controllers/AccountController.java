@@ -66,8 +66,18 @@ public class AccountController extends BaseController<Account, AccountService> {
     }
 
     @Transactional
-    public Result getSession(){
-        return ok(Json.toJson(session().get("id")));
+    public Result getUserSession(){
+        Long sessionId=Long.parseLong(session().get("id"));
+        try {
+            return ok(Json.toJson(service.get(sessionId)));
+        }
+        catch (ServiceException e) {
+            Logger.error("Service error in AccountController@session", e);
+            return badRequest(Json.toJson(""));
+        } catch (Exception e) {
+            Logger.error("Error in AccountController@session", e);
+            return internalServerError(Json.toJson("Internal server error in AccountController@session"));
+        }
     }
 
 }

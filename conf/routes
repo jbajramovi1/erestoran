@@ -16,7 +16,7 @@ POST /api/v1/login @controllers.AccountController.login()
 
 GET /api/v1/logout @controllers.AccountController.logout()
 
-GET /api/v1/session @controllers.AccountController.getSession()
+GET /api/v1/session @controllers.AccountController.getUserSession()
 
 GET  /api/v1/restaurant/:id @controllers.RestaurantController.get(id:Long)
 

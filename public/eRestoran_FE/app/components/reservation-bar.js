@@ -20,6 +20,13 @@ export default Ember.Component.extend({
       this.set('date',input);
     },
     saveReservation(){
+      if (this.get('sessionService').getCurrentUser()==null) {
+        this.get('notifications').error('Please login to continue', {
+         autoClear: true,
+         clearDuration: 1500
+       });
+     }
+     else {
       var account=Account.create({});
       var restaurant=Restaurant.create({});
       account.set('id',this.get('sessionService').getCurrentUserId());
@@ -40,5 +47,6 @@ export default Ember.Component.extend({
        });
      }
     }
+  }
 
 });
