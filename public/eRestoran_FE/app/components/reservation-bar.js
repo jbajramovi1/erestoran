@@ -37,7 +37,7 @@ export default Ember.Component.extend({
             autoClear: true,
             clearDuration: 1500
           });
-           this.transitionTo('home');
+           this.transitionToRoute('home');
      })
        .fail(response => {
           this.get('notifications').error('Reservation error', {

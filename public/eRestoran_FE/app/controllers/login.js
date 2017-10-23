@@ -16,10 +16,12 @@ export default Ember.Controller.extend({
            this.get('accountService').getSession()
            .done(response => {
                   this.get('sessionService').authenticate(username,password,response.id);
+                  this.get('applicationController').send('authenticate');
+                  this.transitionToRoute('home');
                });
 
-           this.get('applicationController').send('authenticate');
-           this.transitionToRoute('home');
+
+
      })
      .fail(response => {
           this.get('notifications').error('Authentication error occured', {
