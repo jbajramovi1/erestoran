@@ -64,4 +64,10 @@ public class AccountController extends BaseController<Account, AccountService> {
         session().clear();
         return ok();
     }
+
+    @Transactional
+    public Result getSession(){
+        return ok(Json.toJson(session().get("id")));
+    }
+
 }

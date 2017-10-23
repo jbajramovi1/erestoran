@@ -7,7 +7,7 @@ export default Ember.Controller.extend({
   user:null,
   actions:{
     authenticate(){
-      this.set('isAuthenticated',true);
+      this.set('isAuthenticated',this.get('sessionService').isAuthenticated());
       this.set('user',this.get('sessionService').getCurrentUser());
     },
     unauthenticate(){

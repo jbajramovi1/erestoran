@@ -23,7 +23,7 @@ export default Ember.Component.extend({
           var account=Account.create({});
           var comment=Comment.create({});
           var restaurant=Restaurant.create({});
-          account.set('id',75);
+          account.set('id',this.get('sessionService').getCurrentUserId());
           comment.setProperties({'content':this.get('review'),'mark':this.get('stars'),'account':account});
           restaurant.set('id',this.get('model.id'))
           this.get('commentService').leaveComment(this.get('review'),this.get('stars'),new Date(),account,restaurant)

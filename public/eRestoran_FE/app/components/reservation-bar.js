@@ -4,6 +4,7 @@ import Restaurant from '../models/restaurant';
 export default Ember.Component.extend({
   reservation: Ember.inject.service('reservation-service'),
   notifications: Ember.inject.service('notification-messages'),
+  sessionService: Ember.inject.service('session-service'),
   people:2,
   time:"6 PM",
   date:new Date(),
@@ -21,7 +22,7 @@ export default Ember.Component.extend({
     saveReservation(){
       var account=Account.create({});
       var restaurant=Restaurant.create({});
-      account.set('id',75);
+      account.set('id',this.get('sessionService').getCurrentUserId());
       restaurant.set('id',this.get('model.id'))
       this.get('reservation').createReservation(this.get('people'),this.get('date'),account,restaurant)
       .done(response => {
@@ -39,5 +40,5 @@ export default Ember.Component.extend({
        });
      }
     }
-  
+
 });

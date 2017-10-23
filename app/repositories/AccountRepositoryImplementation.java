@@ -1,5 +1,6 @@
 package repositories;
 
+import play.mvc.Http.Session;
 import org.hibernate.criterion.Restrictions;
 import org.mindrot.jbcrypt.*;
 
@@ -15,11 +16,13 @@ public class AccountRepositoryImplementation extends BaseRepositoryImplementatio
     }
 
     @Override
-    public Account getByEmailAndPassword(Account account) {
+    public Account getByEmailAndPassword(Account account, Session session) {
         Account acc = (Account) getBaseCriteria()
                 .add(Restrictions.eq("email", account.getEmail()))
                 .uniqueResult();
         if (acc != null && BCrypt.checkpw(account.getPassword(), acc.getPassword())) {
+            session.clear();
+            session.put("id",acc.getId().toString());
             return account;
         }
         return null;

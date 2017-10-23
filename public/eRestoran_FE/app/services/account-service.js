@@ -38,5 +38,14 @@ export default Ember.Service.extend({
         contentType:"application/json"
 
     })
+  },
+
+  getSession(){
+    return $.ajax({
+        method:'GET',
+        url:'/api/v1/session',
+        contentType:"application/json"
+
+    })
   }
 });
