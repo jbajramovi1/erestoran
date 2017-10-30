@@ -1,14 +1,7 @@
 package controllers;
 
-import java.util.List;
-
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
-
-import models.Account;
-import play.db.jpa.JPA;
-import play.db.jpa.JPAApi;
-import play.mvc.*;
+import play.mvc.Controller;
+import play.mvc.Result;
 
 /**
  * This controller contains an action to handle HTTP requests

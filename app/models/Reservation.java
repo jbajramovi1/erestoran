@@ -1,5 +1,6 @@
 package models;
 
+import play.data.validation.Constraints;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -8,6 +9,7 @@ import java.util.Date;
 @Table(name = "reservation")
 public class Reservation extends BaseModel<Reservation> {
     @Column
+    @Constraints.Required(message = "Tables field is required")
     private Integer tables;
     @Column(name = "reservation_date")
     private Date reservationDate;

@@ -1,6 +1,6 @@
 package models;
 
-
+import play.data.validation.Constraints;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -11,6 +11,7 @@ public class Comment extends BaseModel<Comment> {
     @Column
     private String content;
     @Column
+    @Constraints.Required(message = "Mark field is required")
     private Float mark;
     @Column(name = "insert_date")
     private Date insertTime;

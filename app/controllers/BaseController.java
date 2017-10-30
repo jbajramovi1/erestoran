@@ -5,9 +5,9 @@ import java.lang.reflect.ParameterizedType;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import models.Account;
 import models.BaseModel;
-import play.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import play.data.Form;
 import play.data.FormFactory;
 import play.db.jpa.Transactional;
@@ -21,7 +21,7 @@ import services.exceptions.ServiceException;
 public abstract class BaseController<M extends BaseModel<M>, S extends BaseService> extends Controller {
     protected S service;
     protected FormFactory formFactory;
-
+    final Logger logger = LoggerFactory.getLogger(AccountController.class);
     @Inject
     public void setService(S service) {
         this.service = service;
@@ -37,7 +37,7 @@ public abstract class BaseController<M extends BaseModel<M>, S extends BaseServi
         try {
             return ok(Json.toJson(service.get(id)));
         } catch (Exception e) {
-            Logger.error("Internal server error in BaseController@get",e);
+            logger.error("Internal server error in BaseController@get",e);
             return internalServerError("Internal server error in BaseController@get");
         }
     }
@@ -51,10 +51,10 @@ public abstract class BaseController<M extends BaseModel<M>, S extends BaseServi
             }
             return ok(Json.toJson(service.create(form.get())));
         } catch (ServiceException e) {
-            Logger.error("Service error in BaseController@create",e);
+            logger.error("Service error in BaseController@create",e);
             return badRequest("Service error in BaseController@create");
         } catch (Exception e) {
-            Logger.error("Internal server error in BaseController@create",e);
+            logger.error("Internal server error in BaseController@create",e);
             return internalServerError("Internal server error in BaseController@create");
         }
     }
@@ -68,10 +68,10 @@ public abstract class BaseController<M extends BaseModel<M>, S extends BaseServi
             }
             return ok(Json.toJson(service.update(id, form.get())));
         } catch (ServiceException e) {
-            Logger.error("Service error in BaseController@update",e);
+            logger.error("Service error in BaseController@update",e);
             return badRequest("Service error in BaseController@update");
         } catch (Exception e) {
-            Logger.error("Internal server error in BaseController@update",e);
+            logger.error("Internal server error in BaseController@update",e);
             return internalServerError("Internal server error in BaseController@update");
         }
     }
@@ -82,10 +82,10 @@ public abstract class BaseController<M extends BaseModel<M>, S extends BaseServi
             service.delete(id);
             return ok(Json.toJson("success"));
         } catch (ServiceException e) {
-            Logger.error("Service error in BaseController@delete",e);
+            logger.error("Service error in BaseController@delete",e);
             return badRequest("Service error in BaseController@delete");
         } catch (Exception e) {
-            Logger.error("Internal server error in BaseController@delete",e);
+            logger.error("Internal server error in BaseController@delete",e);
             return internalServerError("Internal server error in BaseController@delete");
         }
     }

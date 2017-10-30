@@ -2,17 +2,16 @@ package repositories;
 
 import javax.persistence.PersistenceException;
 
-import org.hibernate.*;
+import org.hibernate.Criteria;
+import org.hibernate.Session;
 import org.hibernate.jpa.HibernateEntityManager;
-
-import play.Logger;
+import org.slf4j.LoggerFactory;
 import play.db.jpa.JPA;
-import repositories.exceptions.*;
-
+import repositories.exceptions.RepositoryException;
 import java.lang.reflect.ParameterizedType;
 
 public class BaseRepositoryImplementation<M> implements BaseRepository<M> {
-
+    final org.slf4j.Logger logger = LoggerFactory.getLogger(BaseRepositoryImplementation.class);
     private Class<M> getParameterizedClass() {
         return (Class<M>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
     }
@@ -35,7 +34,7 @@ public class BaseRepositoryImplementation<M> implements BaseRepository<M> {
             JPA.em().persist(model);
             JPA.em().flush();
         } catch (PersistenceException e) {
-            Logger.error("ServiceException in BaseRepository@create", e);
+            logger.error("ServiceException in BaseRepository@create", e);
             throw new RepositoryException(e.toString());
         }
     }
@@ -45,7 +44,7 @@ public class BaseRepositoryImplementation<M> implements BaseRepository<M> {
             JPA.em().merge(model);
             JPA.em().flush();
         } catch (PersistenceException e) {
-            Logger.error("ServiceException in BaseRepository@update", e);
+            logger.error("ServiceException in BaseRepository@update", e);
             throw new RepositoryException(e.toString());
         }
     }
@@ -55,7 +54,7 @@ public class BaseRepositoryImplementation<M> implements BaseRepository<M> {
             JPA.em().remove(model);
             JPA.em().flush();
         } catch (PersistenceException e) {
-            Logger.error("ServiceException in BaseRepository@delete", e);
+            logger.error("ServiceException in BaseRepository@delete", e);
             throw new RepositoryException(e.toString());
         }
     }

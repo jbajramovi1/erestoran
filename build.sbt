@@ -12,7 +12,6 @@ libraryDependencies+=jdbc
 libraryDependencies += evolutions
 libraryDependencies += javaForms
 libraryDependencies += filters
-libraryDependencies ++= Seq(evolutions, jdbc)
 libraryDependencies ++= Seq(
   javaJpa,
   "org.hibernate" % "hibernate-entitymanager" % "5.1.0.Final",

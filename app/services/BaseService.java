@@ -4,7 +4,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import models.BaseModel;
-import play.Logger;
+import org.slf4j.LoggerFactory;
 import repositories.BaseRepository;
 import repositories.exceptions.RepositoryException;
 import services.exceptions.ServiceException;
@@ -12,7 +12,7 @@ import services.exceptions.ServiceException;
 @Singleton
 public abstract class BaseService<M extends BaseModel<M>, R extends BaseRepository<M>> {
 	protected R repository;
-	
+	final org.slf4j.Logger logger = LoggerFactory.getLogger(BaseService.class);
 	@Inject
 	public void setRepository(R repository) {
 		this.repository = repository;
@@ -26,7 +26,7 @@ public abstract class BaseService<M extends BaseModel<M>, R extends BaseReposito
 	      return model;
 	    }
 
-		//Logger.error(message);
+		logger.error("Service exception in BseService@get");
 	    throw new ServiceException("Service Exception BaseService@get");
 	  }
 	

@@ -1,16 +1,20 @@
 package models;
 
-import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import play.data.validation.Constraints;
 
 import javax.persistence.*;
-
 
 @Entity
 @Table(name = "account")
 public class Account extends BaseModel<Account> {
     @Column
+    @Constraints.Required(message = "Email field is required")
     private String email;
     @Column
+    @JsonIgnore
+    @Constraints.Required(message = "Password field is required")
     private String password;
     @Enumerated(value = EnumType.STRING)
     @Column

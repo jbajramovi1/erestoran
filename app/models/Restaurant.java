@@ -1,11 +1,6 @@
 package models;
 
-
-
-import java.util.List;
-
 import javax.persistence.*;
-
 
 @Entity
 @Table(name = "restaurant")
