@@ -22,6 +22,4 @@ libraryDependencies ++= Seq(
   javaWs
 )
 
-javaOptions ++= Seq("-Xmx2048M", "-Xms512M", "-XX:MaxPermSize=2048M")
-
 fork in run := false

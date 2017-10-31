@@ -17,6 +17,7 @@ public class AccountController extends BaseController<Account, AccountService> {
                 logger.error("Login attempt failed, form has errors.", form.errors());
                 return badRequest(form.errorsAsJson());
             }
+
             return ok(Json.toJson(service.getByEmailAndPassword(form.get(), session())));
         } catch (ServiceException e) {
             logger.error("Service error in AccountController@login", e);
@@ -56,9 +57,8 @@ public class AccountController extends BaseController<Account, AccountService> {
 
     @Transactional
     public Result getUserSession(){
-        Long sessionId=Long.parseLong(session().get("id"));
         try {
-            return ok(Json.toJson(service.get(sessionId)));
+            return ok(Json.toJson(service.getCurrentUser(session().get("username"))));
         }
         catch (ServiceException e) {
             logger.error("Service error in AccountController@session", e);

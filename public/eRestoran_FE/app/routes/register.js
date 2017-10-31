@@ -21,7 +21,12 @@ export default Ember.Route.extend({
                              this.transitionTo('home');
                        })
                          .fail(response => {
-                            this.get('notifications').error('Account already exists', {
+                           var data = $.parseJSON(response.responseText);
+                            var error=null;
+                              if (data.email!=undefined) error=data.email;
+                              else if (data.password!=undefined) error=data.password;
+                              else error="Account already exists";
+                            this.get('notifications').error(error, {
                              autoClear: true,
                              clearDuration: 1500
                            });

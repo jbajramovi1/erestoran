@@ -6,6 +6,8 @@ export default Ember.Route.extend({
     actions:{
         authenticate(){
           this.controllerFor('login').send('login',this.controller.get("username"),this.controller.get("password"));
+          
+
         }
     }
 });

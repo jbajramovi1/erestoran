@@ -6,6 +6,7 @@ export default Ember.Controller.extend({
   notifications: Ember.inject.service('notification-messages'),
   applicationController: Ember.inject.controller('application'),
   actions:{
+
     login(username,password){
       this.get('accountService').userLogin(username,password)
       .done(response => {
@@ -20,11 +21,14 @@ export default Ember.Controller.extend({
                   this.transitionToRoute('home');
                });
 
-
-
      })
      .fail(response => {
-          this.get('notifications').error('Authentication error occured', {
+       var data = $.parseJSON(response.responseText);
+        var error=null;
+          if (data.email!=undefined) error=data.email;
+          else if (data.password!=undefined) error=data.password;
+          else error="Authentication error occured";
+          this.get('notifications').error(error, {
            autoClear: true,
            clearDuration: 1500
          });
