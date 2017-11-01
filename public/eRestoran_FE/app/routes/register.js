@@ -3,8 +3,47 @@ import Ember from 'ember';
 export default Ember.Route.extend({
     accountService: Ember.inject.service('account-service'),
     notifications: Ember.inject.service('notification-messages'),
+    setupController: function(controller, model) {
+      this._super(controller, model);
+      this.controller.set('errorEmail',null);
+      this.controller.set('errorPassword',null);
+      this.controller.set('errorConfirmPassword',null);
+      this.controller.set('firstName',null);
+      this.controller.set('lastName',null);
+      this.controller.set('email',null);
+      this.controller.set('password',null);
+      this.controller.set('phone',null);
+      this.controller.set('country',null);
+      this.controller.set('city',null);
+      this.controller.set('passwordConf',null);
+  },
     actions:{
     register(){
+            this.controller.set('errorEmail',null);
+            this.controller.set('errorPassword',null);
+            this.controller.set('errorConfirmPassword',null);
+
+            let errorFront=false;
+            if (!this.controller.get('password')) {
+              this.controller.set("errorPassword","Password field is required");
+              errorFront=true;
+            }
+            else if (this.controller.get('password')!=this.controller.get('passwordConf')) {
+              this.controller.set("errorConfirmPassword","Password doesn't match");
+              errorFront=true;
+            }
+            if (!this.controller.get('email')) {
+              this.controller.set("errorEmail","Email field is required");
+              errorFront=true;
+            }
+
+            if (errorFront){
+              this.get('notifications').error("Authentication error occured!", {
+               autoClear: true,
+               clearDuration: 1500
+                });
+              return;
+            }
             this.get('accountService').
             userRegister(this.controller.get("firstName"),
                         this.controller.get("lastName"),
@@ -22,14 +61,14 @@ export default Ember.Route.extend({
                        })
                          .fail(response => {
                            var data = $.parseJSON(response.responseText);
-                            var error=null;
-                              if (data.email!=undefined) error=data.email;
-                              else if (data.password!=undefined) error=data.password;
-                              else error="Account already exists";
-                            this.get('notifications').error(error, {
-                             autoClear: true,
-                             clearDuration: 1500
-                           });
+
+                              this.controller.set('errorEmail',data.email);
+                              this.controller.set('errorPassword',data.password);
+
+                              this.get('notifications').error("Authentication error occured!", {
+                               autoClear: true,
+                               clearDuration: 1500
+                             });
                          });
                        }
 

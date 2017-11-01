@@ -18,7 +18,7 @@
           <div class="row">
               {{input value=email class="login-input" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'"
                     type="text"}}
-
+              <div class="error">{{errorEmail}}</div>
           </div>
           <div class="row">
               {{input value=phone class="login-input" placeholder="Phone Number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone Number'"
@@ -39,13 +39,13 @@
             <div class="row">
                 {{input value=password class="login-input" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'"
                         type="password"}}
-
+                <div class="error">{{errorPassword}}</div>
             </div>
 
           <div class="row">
               {{input value=passwordConf class="login-input" placeholder="Confirm Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirm Password'"
                     type="password"}}
-
+              <div class="error">{{errorConfirmPassword}}</div>
           </div>
           </form>
        </div>
