@@ -12,6 +12,7 @@ import javax.validation.Constraint;
 public class Account extends BaseModel<Account> {
     @Column
     @Constraints.Required(message = "Email field is required")
+    @Constraints.Email(message = "Email format is incorrect")
     private String email;
     @Column
     @JsonIgnore

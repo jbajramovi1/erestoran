@@ -22,7 +22,7 @@ export default Ember.Route.extend({
             this.controller.set('errorEmail',null);
             this.controller.set('errorPassword',null);
             this.controller.set('errorConfirmPassword',null);
-
+            let emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             let errorFront=false;
             if (!this.controller.get('password')) {
               this.controller.set("errorPassword","Password field is required");
@@ -34,6 +34,10 @@ export default Ember.Route.extend({
             }
             if (!this.controller.get('email')) {
               this.controller.set("errorEmail","Email field is required");
+              errorFront=true;
+            }
+            else if (!emailRegex.test(this.controller.get('email'))){
+              this.controller.set("errorEmail","Email format is incorrect");
               errorFront=true;
             }
 
