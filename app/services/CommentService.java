@@ -16,8 +16,6 @@ public class CommentService extends BaseService<Comment, CommentRepository> {
     public void setAccountService(AccountService service) { this.accountService=service;}
 
     public Comment create(Comment model, Http.Session session) throws ServiceException{
-
-
         try {
             model.setInsertTime(new Date());
             model.setAccount(accountService.getCurrentUser(session.get("username")));

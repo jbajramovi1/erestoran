@@ -5,7 +5,7 @@ export default Ember.Component.extend({
   reservation: Ember.inject.service('reservation-service'),
   notifications: Ember.inject.service('notification-messages'),
   sessionService: Ember.inject.service('session-service'),
-  people:2,
+  people:null,
   time:"6 PM",
   date:new Date(),
   actions:{

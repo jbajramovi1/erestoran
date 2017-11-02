@@ -9,7 +9,7 @@ export default Ember.Service.extend({
     this.set('currentUserId',id);
   },
   isAuthenticated(){
-    if (this.get('currentUser')==null) return false;
+    if (!this.get('currentUser')) return false;
     return true;
   },
   getCurrentUser(){
