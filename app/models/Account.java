@@ -33,7 +33,6 @@ public class Account extends BaseModel<Account> {
     private String lastName;
 
 
-
     public String getEmail() {
         return email;
     }
