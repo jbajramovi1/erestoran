@@ -17,21 +17,53 @@ import play.mvc.Result;
 import services.BaseService;
 import services.exceptions.ServiceException;
 
+/**
+ * The type Base controller.
+ *
+ * @param <M> the type parameter
+ * @param <S> the type parameter
+ */
 @Singleton
 public abstract class BaseController<M extends BaseModel<M>, S extends BaseService> extends Controller {
+    /**
+     * The Service.
+     */
     protected S service;
+    /**
+     * The Form factory.
+     */
     protected FormFactory formFactory;
+    /**
+     * The Logger.
+     */
     final Logger logger = LoggerFactory.getLogger(AccountController.class);
+
+    /**
+     * Sets service.
+     *
+     * @param service the service
+     */
     @Inject
     public void setService(S service) {
         this.service = service;
     }
 
+    /**
+     * Sets form factory.
+     *
+     * @param formFactory the form factory
+     */
     @Inject
     public void setFormFactory(FormFactory formFactory) {
         this.formFactory = formFactory;
     }
 
+    /**
+     * Get result.
+     *
+     * @param id the id
+     * @return the result
+     */
     @Transactional(readOnly = true)
     public Result get(Long id) {
         try {
@@ -42,6 +74,11 @@ public abstract class BaseController<M extends BaseModel<M>, S extends BaseServi
         }
     }
 
+    /**
+     * Create result.
+     *
+     * @return the result
+     */
     @Transactional
     public Result create() {
         try {
@@ -59,6 +96,12 @@ public abstract class BaseController<M extends BaseModel<M>, S extends BaseServi
         }
     }
 
+    /**
+     * Update result.
+     *
+     * @param id the id
+     * @return the result
+     */
     @Transactional
     public Result update(Long id) {
         try {
@@ -76,6 +119,12 @@ public abstract class BaseController<M extends BaseModel<M>, S extends BaseServi
         }
     }
 
+    /**
+     * Delete result.
+     *
+     * @param id the id
+     * @return the result
+     */
     @Transactional
     public Result delete(Long id) {
         try {

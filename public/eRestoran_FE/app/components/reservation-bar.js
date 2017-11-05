@@ -5,7 +5,7 @@ export default Ember.Component.extend({
   reservation: Ember.inject.service('reservation-service'),
   notifications: Ember.inject.service('notification-messages'),
   sessionService: Ember.inject.service('session-service'),
-  people:null,
+  people:2,
   time:"6 PM",
   date:new Date(),
   actions:{
@@ -31,13 +31,13 @@ export default Ember.Component.extend({
       var restaurant=Restaurant.create({});
       account.set('id',this.get('sessionService').getCurrentUserId());
       restaurant.set('id',this.get('model.id'))
-      this.get('reservation').createReservation(this.get('people'),this.get('date'),account,restaurant)
+      this.get('reservation').createReservation(this.get('people'),this.get('date'),restaurant)
       .done(response => {
            this.get('notifications').success('Successful reservation!', {
             autoClear: true,
             clearDuration: 1500
           });
-           this.transitionToRoute('home');
+
      })
        .fail(response => {
           this.get('notifications').error('Reservation error', {

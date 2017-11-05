@@ -22,7 +22,16 @@ export default Ember.Route.extend({
   },
 
   model(params){
-    return Restaurant.create(this.get('restaurant').getById(params.id));
+    return this.get('restaurant').getById(params.id)
+    .fail(response => {
+        this.transitionTo('home');
+         this.get('notifications').error("Restaurant load error occured!", {
+          autoClear: true,
+          clearDuration: 1500
+        });
+
+    });
+
   }
 
 });

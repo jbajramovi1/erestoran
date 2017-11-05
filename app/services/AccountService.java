@@ -8,8 +8,18 @@ import repositories.exceptions.RepositoryException;
 import services.exceptions.ServiceException;
 
 
+/**
+ * The type Account service.
+ */
 public class AccountService extends BaseService<Account, AccountRepository> {
 
+    /**
+     * Gets by email.
+     *
+     * @param data the data
+     * @return the by email
+     * @throws ServiceException the service exception
+     */
     public Account getByEmail(Account data) throws ServiceException {
         Account account = repository.getByEmail(data);
         if (account == null) {
@@ -18,6 +28,14 @@ public class AccountService extends BaseService<Account, AccountRepository> {
         return account;
     }
 
+    /**
+     * Gets by email and password.
+     *
+     * @param data    the data
+     * @param session the session
+     * @return the by email and password
+     * @throws ServiceException the service exception
+     */
     public Account getByEmailAndPassword(Account data, Session session) throws ServiceException {
         Account account = repository.getByEmailAndPassword(data);
         if (account == null) {
@@ -29,6 +47,13 @@ public class AccountService extends BaseService<Account, AccountRepository> {
         return account;
     }
 
+    /**
+     * Gets current user.
+     *
+     * @param email the email
+     * @return the current user
+     * @throws ServiceException the service exception
+     */
     public Account getCurrentUser(String email) throws ServiceException{
         Account account=repository.getCurrentUser(email);
         if (account == null) {

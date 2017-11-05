@@ -19,16 +19,7 @@ export default Ember.Route.extend({
   },
     actions:{
     register(){
-      this.controllerFor('register').send('register',
-                                          this.controller.get("firstName"),
-                                          this.controller.get("lastName"),
-                                          this.controller.get("email"),
-                                          this.controller.get("phone"),
-                                          this.controller.get("country"),
-                                          this.controller.get("city"),
-                                          this.controller.get("password"),
-                                          this.controller.get("passwordConf"))
-
+      this.controllerFor('register').send('register')
          }
     }
 })

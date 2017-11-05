@@ -5,6 +5,9 @@ import play.data.validation.Constraints;
 import javax.persistence.*;
 import java.util.Date;
 
+/**
+ * The type Comment.
+ */
 @Entity
 @Table(name = "comment")
 public class Comment extends BaseModel<Comment> {
@@ -23,42 +26,92 @@ public class Comment extends BaseModel<Comment> {
     private Restaurant restaurant;
 
 
+    /**
+     * Gets content.
+     *
+     * @return the content
+     */
     public String getContent() {
         return content;
     }
 
+    /**
+     * Sets content.
+     *
+     * @param content the content
+     */
     public void setContent(String content) {
         this.content = content;
     }
 
+    /**
+     * Gets mark.
+     *
+     * @return the mark
+     */
     public Float getMark() {
         return mark;
     }
 
+    /**
+     * Sets mark.
+     *
+     * @param mark the mark
+     */
     public void setMark(Float mark) {
         this.mark = mark;
     }
 
+    /**
+     * Gets insert time.
+     *
+     * @return the insert time
+     */
     public Date getInsertTime() {
         return insertTime;
     }
 
+    /**
+     * Sets insert time.
+     *
+     * @param insertTime the insert time
+     */
     public void setInsertTime(Date insertTime) {
         this.insertTime = insertTime;
     }
 
+    /**
+     * Gets account.
+     *
+     * @return the account
+     */
     public Account getAccount() {
         return account;
     }
 
+    /**
+     * Sets account.
+     *
+     * @param account the account
+     */
     public void setAccount(Account account) {
         this.account = account;
     }
 
+    /**
+     * Gets restaurant.
+     *
+     * @return the restaurant
+     */
     public Restaurant getRestaurant() {
         return restaurant;
     }
 
+    /**
+     * Sets restaurant.
+     *
+     * @param restaurant the restaurant
+     */
     public void setRestaurant(Restaurant restaurant) {
         this.restaurant = restaurant;
     }

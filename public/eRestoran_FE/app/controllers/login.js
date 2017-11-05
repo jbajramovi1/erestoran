@@ -11,6 +11,28 @@ export default Ember.Controller.extend({
     login(username,password){
       this.set('errorUsername',null);
       this.set('errorPassword',null);
+      let emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      let errorFront=false;
+      if (!this.get('password')) {
+        this.set("errorPassword","Password field is required");
+        errorFront=true;
+      }
+      if (!this.get('username')) {
+        this.set("errorUsername","Email field is required");
+        errorFront=true;
+      }
+      else if (!emailRegex.test(this.get('username'))){
+        this.set("errorUsername","Email format is incorrect");
+        errorFront=true;
+      }
+
+      if (errorFront){
+        this.get('notifications').error("Authentication error occured!", {
+         autoClear: true,
+         clearDuration: 1500
+          });
+        return;
+      }
       this.get('accountService').userLogin(username,password)
       .done(response => {
            this.get('notifications').success('Login successful!', {

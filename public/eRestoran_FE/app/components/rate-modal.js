@@ -7,6 +7,13 @@ export default Ember.Component.extend({
   sessionService: Ember.inject.service('session-service'),
   notifications: Ember.inject.service('notification-messages'),
   stars:5,
+  enableButton:false,
+  init:function(){
+    if (this.get('sessionService').getCurrentUser()){
+      this.set('enableButton',true);
+    }
+    return this._super();
+  },
   actions: {
         toggleModal: function() {
           if (this.get('sessionService').getCurrentUser()!=null) {
@@ -26,7 +33,7 @@ export default Ember.Component.extend({
           account.set('id',this.get('sessionService').getCurrentUserId());
           comment.setProperties({'content':this.get('review'),'mark':this.get('stars'),'account':account});
           restaurant.set('id',this.get('model.id'))
-          this.get('commentService').leaveComment(this.get('review'),this.get('stars'),new Date(),account,restaurant)
+          this.get('commentService').leaveComment(this.get('review'),this.get('stars'),new Date(),restaurant)
           .done(response => {
                this.get('notifications').success('Your rating is saved!', {
                 autoClear: true,

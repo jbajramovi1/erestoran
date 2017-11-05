@@ -2,13 +2,18 @@ package controllers;
 
 import models.Comment;
 import play.data.Form;
+import play.db.jpa.Transactional;
 import play.libs.Json;
 import play.mvc.Result;
 import services.CommentService;
 import services.exceptions.ServiceException;
 
+/**
+ * The type Comment controller.
+ */
 public class CommentController extends BaseController<Comment, CommentService>{
 
+    @Transactional
     @Override
     public Result create() {
         try {

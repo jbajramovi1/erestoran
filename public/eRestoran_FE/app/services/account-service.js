@@ -14,6 +14,7 @@ export default Ember.Service.extend({
           contentType:"application/json"
       })
     },
+    
     userRegister(firstName,lastName,email,phone,country,city,password) {
     return $.ajax({
         method:'POST',

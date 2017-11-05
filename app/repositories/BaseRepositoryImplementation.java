@@ -10,7 +10,15 @@ import play.db.jpa.JPA;
 import repositories.exceptions.RepositoryException;
 import java.lang.reflect.ParameterizedType;
 
+/**
+ * The type Base repository implementation.
+ *
+ * @param <M> the type parameter
+ */
 public class BaseRepositoryImplementation<M> implements BaseRepository<M> {
+    /**
+     * The Logger.
+     */
     final org.slf4j.Logger logger = LoggerFactory.getLogger(BaseRepositoryImplementation.class);
     private Class<M> getParameterizedClass() {
         return (Class<M>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
@@ -20,11 +28,21 @@ public class BaseRepositoryImplementation<M> implements BaseRepository<M> {
         return JPA.em().find(getParameterizedClass(), id);
     }
 
+    /**
+     * Gets base criteria.
+     *
+     * @return the base criteria
+     */
     protected Criteria getBaseCriteria() {
         Session session = ((HibernateEntityManager) JPA.em()).getSession();
         return session.createCriteria(getParameterizedClass());
     }
 
+    /**
+     * Gets session.
+     *
+     * @return the session
+     */
     public Session getSession() {
         return JPA.em().unwrap(Session.class);
     }

@@ -8,7 +8,15 @@ import play.mvc.Result;
 import services.AccountService;
 import services.exceptions.ServiceException;
 
+/**
+ * The type Account controller.
+ */
 public class AccountController extends BaseController<Account, AccountService> {
+    /**
+     * Login result.
+     *
+     * @return the result
+     */
     @Transactional(readOnly = true)
     public Result login() {
         try {
@@ -29,12 +37,17 @@ public class AccountController extends BaseController<Account, AccountService> {
 
     }
 
+    /**
+     * Register result.
+     *
+     * @return the result
+     */
     @Transactional
     public Result register() {
         try {
             Form<Account> form = formFactory.form(Account.class).bindFromRequest();
             if (form.hasErrors()) {
-                logger.error("Login attempt failed, form has errors.", form.errors());
+                logger.error("Register attempt failed, form has errors.", form.errors());
                 return badRequest(form.errorsAsJson());
             }
 
@@ -48,6 +61,11 @@ public class AccountController extends BaseController<Account, AccountService> {
         }
     }
 
+    /**
+     * Logout result.
+     *
+     * @return the result
+     */
     @Transactional
     public Result logout(){
 
@@ -55,6 +73,11 @@ public class AccountController extends BaseController<Account, AccountService> {
         return ok();
     }
 
+    /**
+     * Get user session result.
+     *
+     * @return the result
+     */
     @Transactional
     public Result getUserSession(){
         try {

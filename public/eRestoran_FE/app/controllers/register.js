@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import Account from '../models/account';
 
 export default Ember.Controller.extend({
   errorUsername:null,
@@ -7,7 +8,9 @@ export default Ember.Controller.extend({
   accountService: Ember.inject.service('account-service'),
   notifications: Ember.inject.service('notification-messages'),
   actions:{
-    register(firstName,lastName, email, phone, country, city, password, passwordConf){
+    register(){
+      var account=Account.create({});
+      account.setProperties({'email':this.get('email'),'password':this.get('password'),'country':this.get('country'),'city':this.get('city'),'firstName':this.get('firstName'),'lastName':this.get('lastName')});
       this.set('errorEmail',null);
       this.set('errorPassword',null);
       this.set('errorConfirmPassword',null);
@@ -37,6 +40,7 @@ export default Ember.Controller.extend({
           });
         return;
       }
+
       this.get('accountService').
       userRegister(this.get('firstName'),this.get('lastName'),this.get('email'),this.get('phone'),this.get('country'),this.get('city'),this.get('password'))
                   .done(response => {

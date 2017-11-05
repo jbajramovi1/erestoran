@@ -5,6 +5,9 @@ import play.mvc.Http.Session;
 import org.hibernate.criterion.Restrictions;
 import models.Account;
 
+/**
+ * The type Account repository implementation.
+ */
 public class AccountRepositoryImplementation extends BaseRepositoryImplementation<Account> implements AccountRepository {
 
     @Override

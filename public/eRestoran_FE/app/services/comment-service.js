@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Service.extend({
-  leaveComment(content,mark,insertTime,account,restaurant) {
+  leaveComment(content,mark,insertTime,restaurant) {
   return $.ajax({
       method:'POST',
       url:'/api/v1/comment',
@@ -9,7 +9,6 @@ export default Ember.Service.extend({
           content,
           mark,
           insertTime,
-          account,
           restaurant
       }),
       contentType:"application/json"
