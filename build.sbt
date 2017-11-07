@@ -9,14 +9,17 @@ scalaVersion := "2.12.2"
 
 libraryDependencies+=guice
 libraryDependencies+=jdbc
-
+libraryDependencies += evolutions
+libraryDependencies += javaForms
+libraryDependencies += filters
 libraryDependencies ++= Seq(
   javaJpa,
   "org.hibernate" % "hibernate-entitymanager" % "5.1.0.Final",
   "org.postgresql" % "postgresql" % "9.4.1208.jre7",
   cache,
+  "org.mindrot" % "jbcrypt" % "0.3m",
+  "org.scala-lang" % "scala-library" % "2.12.2",
   javaWs
 )
-
 
 fork in run := false

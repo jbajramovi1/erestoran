@@ -1,0 +1,8 @@
+@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css");
+@import "sections/login.css";
+@import "sections/register.css";
+@import "sections/home.css";
+@import "sections/restaurant.css";
+@import "sections/reservation-bar.css";
+@import "sections/base.css";
+@import "sections/rate-modal.css"
