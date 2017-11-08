@@ -9,6 +9,12 @@
   box-shadow: 1px 1px 5px 1px #d3d3d3;
 }
 
+.admin-item{
+  color: gray!important;
+}
+.admin-item:hover{
+  color: #Fe4a49!important;
+}
 .menu-component{
   margin-top: 50px;
 }
@@ -40,4 +46,20 @@
   height: 40px;
   background-color:#Fe4a49;
   color:#fefefe;
+}
+
+.options-col{
+  width: 10%;
+}
+.admin-glyphicon{
+  margin-left: 5px;
+  color: gray;
+}
+
+.admin-glyphicon:hover{
+  color: #Fe4a49;
+}
+th{
+  font-weight: normal;
+  color: gray;
 }

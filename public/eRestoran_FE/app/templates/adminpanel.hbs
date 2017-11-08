@@ -3,15 +3,16 @@
   <div class="container-admin">
     <div class="admin-menu">
       <ul class="nav navbar-nav nav-admin">
-          <li class="nav-item"><a href="#">Dashboard</a></li>
-          <li class="nav-item"><a href="#">Restaurant</a></li>
-          <li class="nav-item "><a href="#">Locations</a></li>
-          <li class="nav-item "><a href="#">Users</a></li>
+          <li class="nav-item"><a {{action "openDashboard"}} class="admin-item" href="#">Dashboard</a></li>
+          <li class="nav-item"><a {{action "openRestaurants"}} class="admin-item" href="#">Restaurants</a></li>
+          <li class="nav-item "><a class="admin-item" href="#">Locations</a></li>
+          <li class="nav-item "><a class="admin-item" href="#">Users</a></li>
       </ul>
     </div>
 
     <div class="menu-component">
-      {{#dashboard-component}}{{/dashboard-component}}
+      {{#dashboard-component enabled=enableDashboard}}{{/dashboard-component}}
+      {{#admin-restaurants enabled=enableRestaurants}}{{/admin-restaurants}}
     </div>
   </div>
 </div>
