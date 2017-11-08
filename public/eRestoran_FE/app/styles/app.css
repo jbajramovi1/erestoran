@@ -5,4 +5,5 @@
 @import "sections/restaurant.css";
 @import "sections/reservation-bar.css";
 @import "sections/base.css";
-@import "sections/rate-modal.css"
+@import "sections/rate-modal.css";
+@import "sections/adminpanel.css"
