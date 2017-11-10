@@ -37,6 +37,9 @@ module.exports = function(environment) {
       'img-src': "'self' *.googleapis.com maps.gstatic.com csi.gstatic.com",
       'style-src': "'self' 'unsafe-inline' fonts.googleapis.com maps.gstatic.com"
     };
+    ENV.googleMap = {
+  apiKey: 'AIzaSyCZa4D8RXxSjDR4v4U50uzLslPLttavsuU'
+}
   }
 
   if (environment === 'test') {

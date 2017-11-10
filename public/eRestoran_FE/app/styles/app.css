@@ -6,4 +6,9 @@
 @import "sections/reservation-bar.css";
 @import "sections/base.css";
 @import "sections/rate-modal.css";
-@import "sections/adminpanel.css"
+@import "sections/adminpanel.css";
+@import "sections/admin-restaurants.css";
+@import "sections/dashboard-component.css";
+@import "sections/add-restaurant.css";
+@import "sections/admin-locations.css";
+@import "sections/add-location.css";

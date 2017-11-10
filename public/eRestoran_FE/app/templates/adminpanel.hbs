@@ -5,7 +5,7 @@
       <ul class="nav navbar-nav nav-admin">
           <li class="nav-item"><a {{action "openDashboard"}} class="admin-item" href="#">Dashboard</a></li>
           <li class="nav-item"><a {{action "openRestaurants"}} class="admin-item" href="#">Restaurants</a></li>
-          <li class="nav-item "><a class="admin-item" href="#">Locations</a></li>
+          <li class="nav-item "><a {{action "openLocations"}} class="admin-item" href="#">Locations</a></li>
           <li class="nav-item "><a class="admin-item" href="#">Users</a></li>
       </ul>
     </div>
@@ -13,6 +13,9 @@
     <div class="menu-component">
       {{#dashboard-component enabled=enableDashboard}}{{/dashboard-component}}
       {{#admin-restaurants enabled=enableRestaurants}}{{/admin-restaurants}}
+      {{#add-restaurant enabled=enableAddRestaurant}}{{/add-restaurant}}
+      {{#add-location enabled=enableAddLocation}}{{/add-location}}
+      {{#admin-locations enabled=enableLocations}}{{/admin-locations}}
     </div>
   </div>
 </div>
