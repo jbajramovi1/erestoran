@@ -12,3 +12,5 @@
 @import "sections/add-restaurant.css";
 @import "sections/admin-locations.css";
 @import "sections/add-location.css";
+@import "sections/add-user.css";
+@import "sections/admin-users.css";

@@ -6,6 +6,8 @@ export default Ember.Controller.extend({
   enableAddRestaurant:false,
   enableLocations:false,
   enableAddLocation:false,
+  enableUsers:false,
+  enableAddUser:false,
   actions: {
         openDashboard: function() {
             this.set('enableDashboard',true);
@@ -13,6 +15,8 @@ export default Ember.Controller.extend({
             this.set('enableAddRestaurant',false);
             this.set('enableLocations',false);
             this.set('enableAddLocation',false);
+            this.set('enableUsers',false);
+            this.set('enableAddUser',false);
          },
          openRestaurants: function() {
            this.set('enableDashboard',false);
@@ -20,6 +24,8 @@ export default Ember.Controller.extend({
              this.set('enableAddRestaurant',false);
              this.set('enableLocations',false);
              this.set('enableAddLocation',false);
+             this.set('enableUsers',false);
+             this.set('enableAddUser',false);
           },
           openAddRestaurant: function() {
             this.set('enableDashboard',false);
@@ -27,6 +33,8 @@ export default Ember.Controller.extend({
               this.set('enableAddRestaurant',true);
               this.set('enableLocations',false);
               this.set('enableAddLocation',false);
+              this.set('enableUsers',false);
+              this.set('enableAddUser',false);
           },
           openLocations: function() {
             this.set('enableDashboard',false);
@@ -34,6 +42,8 @@ export default Ember.Controller.extend({
               this.set('enableAddRestaurant',false);
               this.set('enableLocations',true);
               this.set('enableAddLocation',false);
+              this.set('enableUsers',false);
+              this.set('enableAddUser',false);
           },
           openAddLocation: function() {
             this.set('enableDashboard',false);
@@ -41,6 +51,26 @@ export default Ember.Controller.extend({
               this.set('enableAddRestaurant',false);
               this.set('enableLocations',false);
               this.set('enableAddLocation',true);
+              this.set('enableUsers',false);
+              this.set('enableAddUser',false);
+          },
+          openUsers: function() {
+            this.set('enableDashboard',false);
+              this.set('enableRestaurants',false);
+              this.set('enableAddRestaurant',false);
+              this.set('enableLocations',false);
+              this.set('enableAddLocation',false);
+              this.set('enableUsers',true);
+              this.set('enableAddUser',false);
+          },
+          openAddUser: function() {
+            this.set('enableDashboard',false);
+              this.set('enableRestaurants',false);
+              this.set('enableAddRestaurant',false);
+              this.set('enableLocations',false);
+              this.set('enableAddLocation',false);
+              this.set('enableUsers',false);
+              this.set('enableAddUser',true);
           }
 }
 });

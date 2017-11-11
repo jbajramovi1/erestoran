@@ -17,5 +17,8 @@ export default Ember.Component.extend({
       }
     ]),
     });
+  },
+  model(params){
+
   }
 });
