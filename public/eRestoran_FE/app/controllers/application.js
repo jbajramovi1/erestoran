@@ -4,11 +4,13 @@ export default Ember.Controller.extend({
   sessionService: Ember.inject.service('session-service'),
   accountService: Ember.inject.service('account-service'),
   isAuthenticated:false,
+  isAdmin:false,
   user:null,
   actions:{
     authenticate(){
       this.set('isAuthenticated',true);
       this.set('user',this.get('sessionService').getCurrentUser());
+      if (this.get('sessionService').isAdmin()) this.set('isAdmin',true);
     },
     unauthenticate(){
       this.set('isAuthenticated',false);
